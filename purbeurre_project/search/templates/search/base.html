@@ -36,26 +36,23 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg fixed-top py-3" id="mainNav">
         <div class="container-fluid">
-            <a class="navbar-brand js-scroll-trigger" href="#page-top"><img class="img-fluid" src="{% static 'search/img/big_logo.png' %}" alt="logo_purbeurre"> Pur Beurre</a>
+            <a class="navbar-brand js-scroll-trigger" href="{% url 'search:index' %}"><img class="img-fluid" src="{% static 'search/img/big_logo.png' %}" alt="logo_purbeurre"> Pur Beurre</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto my-2 my-lg-0">
-                    <li class="nav-item">
+                    <li class="nav-item mr-5">
                         <input class="form-control" type="text" placeholder="Rechercher" id="fiel-search-nav-bar">
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#about">About</a>
+                        <a href="{% url 'search:search_login' %}"><i class="fas fa-user fa-2x link-style color-cyan"></i></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#services">Services</a>
+                        <a class="nav-link js-scroll-trigger" href="#"><img src="{% static 'search/img/noun_Carrot_29691.png' %}" alt=""></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+                        <a href="#"><i class="fas fa-sign-out-alt fa-2x link-style color-cyan"></i></a>
                     </li>
                 </ul>
             </div>

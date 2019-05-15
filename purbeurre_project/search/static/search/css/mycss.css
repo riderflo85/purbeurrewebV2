@@ -42,12 +42,13 @@ h1, h2, h3, h4
     background-color: #E8A75D;
 }
 
-#sign-up
+.color-cyan
 {
     color: #86EBE6;
 }
 
-.icon-color-contact
+.link-style:hover
 {
-    color: #86EBE6;
+    text-decoration: none;
+    color: #DE9440;
 }
