@@ -4,5 +4,8 @@ from django.shortcuts import render
 def index(request):
     return render(request, 'search/index.html')
 
-def account(request):
-    return render(request, 'search/account.html')
+def login(request):
+    return render(request, 'search/login.html')
+
+# def account(request):
+#     return render(request, 'search/account.html')
