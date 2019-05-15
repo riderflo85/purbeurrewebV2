@@ -8,6 +8,12 @@ h1, h2, h3, h4
     font-family: "Open Sans", sans-serif;
 }
 
+#fiel-search-nav-bar
+{
+    background-color: rgba(212, 212, 212, 0.733);
+    border: 1px solid rgba(212, 212, 212, 0.733);
+}
+
 #field-login
 {
     width: 50%;
@@ -37,6 +43,11 @@ h1, h2, h3, h4
 }
 
 #sign-up
+{
+    color: #86EBE6;
+}
+
+.icon-color-contact
 {
     color: #86EBE6;
 }
