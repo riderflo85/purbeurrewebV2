@@ -52,3 +52,19 @@ h1, h2, h3, h4
     text-decoration: none;
     color: #DE9440;
 }
+
+#image-user
+{
+    margin-top: 4vh;
+    height: 30vh;
+    background-image: url(../img/orig.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.alignement
+{
+    height: 100%;
+    margin-top: 6%;
+}
