@@ -22,16 +22,16 @@
                                     <div class="input-group-prepend fav-icon-bg">
                                         <span class="input-group-text fav-icon-bg"><i class="fas fa-key"></i></span>
                                     </div>
-                                    <input type="password" class="form-control" placeholder="password">
+                                    <input type="password" class="form-control" placeholder="Mot de passe">
                                 </div><!-- end .input-group form-group -->
                                 <div class="form-group">
-                                    <input type="submit" value="Login" class="btn btn-color-personal float-right login_btn">
+                                    <input type="submit" value="Connexion" class="btn btn-color-personal float-right login_btn">
                                 </div>
                             </form><!-- end form -->
                         </div><!-- end .card-body -->
                         <div class="card-footer">
                             <div class="d-flex justify-content-center links text-white">
-                                Vous n’avez pas de compte? <a href="#" id="sign-up"> Inscrivez-vous</a>
+                                Vous n’avez pas de compte? <a href="{% url 'search:sign_up' %}" id="sign-up"> Inscrivez-vous</a>
                             </div>
                         </div>
                     </div><!-- end .card -->
