@@ -1,0 +1,48 @@
+{% extends 'search/base.html' %}
+
+{% block content %}
+{% load static %}
+
+<style type="text/css">
+    #mainNav{background-color: #345A61;}
+</style>
+
+<header class="delimit-display">
+
+    <div class="container-fluid h-100">
+
+        <!-- banner -->
+        <div class="row text-center align-items-center" id="img-food">
+            <div class="col-12">
+                <h1 class="text-success">{{ aliment }}</h1>
+
+                {% if img %}
+                    <style type="text/css">
+                        #img-food{background-color: aquamarine;}
+                    </style>
+
+                {% else %}
+                    <h1 class="text-warning">pas d'image</h1>
+
+                {% endif %}
+
+            </div><!-- end .col-12 -->
+        </div><!-- end .row -->
+
+        <!-- content -->
+        <div class="row justify-content-center">
+            {% for food in testListFood %}
+                <div class="col-12 col-lg-4 my-2">
+                    <div class="card border-primary size-card size-card mx-auto">
+                        <img src="{% static 'search/img/orig.jpg' %}" alt="image" class="card-img-top img-fluid">
+                        <div class="card-body">
+                            <h4 class="card-title text-center">{{ food }}</h4>
+                            <a href="#" class="btn btn-color-personal">Sauvegarder</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div><!-- end .container-fluid h-100 -->
+</header>
+{% endblock content %}

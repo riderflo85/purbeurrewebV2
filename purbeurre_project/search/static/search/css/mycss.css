@@ -30,6 +30,17 @@ h1, h2, h3, h4
     border-radius: 4px;
 }
 
+.delimit-display
+{
+    height: 100vh;
+    padding-top: 6%;
+}
+
+#img-food
+{
+    height: 20vh;
+}
+
 .btn-color-personal
 {
     color: #345A61;
@@ -67,4 +78,9 @@ h1, h2, h3, h4
 {
     height: 100%;
     margin-top: 6%;
+}
+
+.size-card
+{
+    width: 25rem;
 }

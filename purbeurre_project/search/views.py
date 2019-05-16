@@ -12,3 +12,11 @@ def sign_up(request):
 
 def account(request):
     return render(request, 'search/account.html')
+
+def result(request):
+    context = {
+        "aliment": "Pomme de terre",
+        "img": ["test"],
+        "testListFood": ["Patate", "Choux", "Pomme", "Poire", "Banane", "mangue", "fraise", "framboise", "Mur", "Fruit de la passion", "Pêche", "Abricot", "Grenadine", "Ananas", "Prune", "Nectarine"],
+        }
+    return render(request, 'search/result.html', context)
