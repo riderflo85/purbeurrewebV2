@@ -30,15 +30,32 @@ h1, h2, h3, h4
     border-radius: 4px;
 }
 
-.delimit-display
+/* .delimit-display
 {
     height: 100vh;
-    padding-top: 6%;
-}
+    padding-top: 120px;
+} */
 
 #img-food
 {
-    height: 20vh;
+    height: 15vh;
+}
+
+.nut-group
+{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    right: -20px;
+    top: -20px;
+    background-color: #DE9440;
+    border: 2px solid #C45525;
+    border-radius: 30px;
+}
+
+div.h2
+{
+    margin: 0;
 }
 
 .btn-color-personal
@@ -56,6 +73,11 @@ h1, h2, h3, h4
 .color-cyan
 {
     color: #86EBE6;
+}
+
+.color-darkblue
+{
+    color: #345A61;
 }
 
 .link-style:hover

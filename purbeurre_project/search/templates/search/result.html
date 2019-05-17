@@ -31,17 +31,33 @@
 
         <!-- content -->
         <div class="row justify-content-center">
+
+            {% if testListFood|length >= 7 %}
+                <style type="text/css">
+                    .delimit-display{padding-top: 120px;}
+                </style>
+            
+            {% else %}
+                <style type="text/css">
+                    .delimit-display{height: 100vh; padding-top: 120px;}
+                </style>
+            {% endif %}
+
             {% for food in testListFood %}
-                <div class="col-12 col-lg-4 my-2">
+                <div class="col-12 col-lg-4 my-5">
                     <div class="card border-primary size-card size-card mx-auto">
+                        <div class="d-flex align-items-center justify-content-center nut-group">
+                                <div class="color-darkblue h2"><strong>A</strong></div>
+                        </div>
                         <img src="{% static 'search/img/orig.jpg' %}" alt="image" class="card-img-top img-fluid">
                         <div class="card-body">
                             <h4 class="card-title text-center">{{ food }}</h4>
-                            <a href="#" class="btn btn-color-personal">Sauvegarder</a>
+                            <a href="#" class="btn btn-color-personal"><i class="fas fa-save"></i> Sauvegarder</a>
                         </div>
                     </div>
                 </div>
             {% endfor %}
+
         </div>
     </div><!-- end .container-fluid h-100 -->
 </header>
