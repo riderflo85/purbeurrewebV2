@@ -14,7 +14,7 @@
         <!-- banner -->
         <div class="row text-center align-items-center" id="img-food">
             <div class="col-12">
-                <h1 class="text-success">{{ aliment }}</h1>
+                <h1 class="text-success">{{ name }}, {{ id }}, {{ groupe_nova }}</h1>
 
                 {% if img %}
                     <style type="text/css">
@@ -43,7 +43,7 @@
                 </style>
             {% endif %}
 
-            {% for food in testListFood %}
+            {% for food in list_food %}
                 <div class="col-12 col-lg-4 my-5">
                     <div class="card border-primary size-card size-card mx-auto">
                         <div class="d-flex align-items-center justify-content-center nut-group">
