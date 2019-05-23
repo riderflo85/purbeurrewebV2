@@ -2,8 +2,8 @@ from django.db import models
 
 class Aliment(models.Model):
     name = models.CharField(max_length=140, null=False, unique=True)
-    nutrition_group = models.CharField(max_length=2, verbose_name="Groupe nutritionnel")
-    nova_group = models.CharField(max_length=2)
+    nutrition_group = models.CharField(max_length=1, verbose_name="Groupe nutritionnel")
+    nova_group = models.CharField(max_length=1)
     shop = models.CharField(max_length=80, verbose_name="Boutique d'achat")
     link = models.CharField(max_length=140, verbose_name="Lien internet")
     categorie = models.ForeignKey('Categorie', on_delete=models.CASCADE)

@@ -12,11 +12,13 @@
         </div>
         <div class="col-lg-8 align-self-baseline">
           <h2 class="text-white-75 font-weight-light mb-5">Trouvez un produit de substitution pour ceux que vous consommez tous les jours.</h2>
-          <form action="" class="form-inline">
+
+          <form action="{% url 'search:index' %}" method="post" class="form-inline">
+            {% csrf_token %}
             <div class="input-group mx-auto">
-              <input type="search" name="recherche" placeholder="Produit" class="form-control">
+              <input type="search" name="food" placeholder="Produit" class="form-control">
               <div class="input-group-append">
-                <button class="btn btn-info">Chercher</button>
+                <button type="submit" class="btn btn-info">Chercher</button>
               </div>
             </div>
           </form><!-- end form -->
