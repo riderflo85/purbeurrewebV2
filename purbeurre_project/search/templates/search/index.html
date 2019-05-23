@@ -16,7 +16,8 @@
           <form action="{% url 'search:index' %}" method="post" class="form-inline">
             {% csrf_token %}
             <div class="input-group mx-auto">
-              <input type="search" name="food" placeholder="Produit" class="form-control">
+              {% comment %} <input type="search" name="food" placeholder="Produit" class="form-control"> {% endcomment %}
+              {{ form.research }}
               <div class="input-group-append">
                 <button type="submit" class="btn btn-info">Chercher</button>
               </div>

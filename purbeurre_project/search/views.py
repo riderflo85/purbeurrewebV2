@@ -2,25 +2,38 @@ from django.shortcuts import render
 from django.urls import reverse
 from django.http import HttpResponseRedirect
 from .models import Aliment
+from .forms import SearchForm
 
 # Create your views here.
 def index(request):
 
-    if request.method == 'POST':
-        food_search = request.POST.get('food')
+    context = {}
 
-        food = Aliment.objects.filter(name__contains=food_search)
-        if food.exists():
-            context = {
-                'id': food[0].id,
-                'name': food[0].name,
-                'groupe_nova': food[0].nova_group,
-                'list_food': food,
-                }
+    if request.method == 'POST':
+    #     food_search = request.POST.get('food')
+    #     food = Aliment.objects.filter(name__contains=food_search)
+
+        form = SearchForm(request.POST)
+        if form.is_valid():
+            food_search = form.cleaned_data['research']
+            food = Aliment.objects.filter(name__contains=food_search)
+
+            if food.exists():
+                context['id'] = food[0].id
+                context['name'] = food[0].name
+                context['groupe_nova'] = food[0].nova_group
+                context['list_food'] = food
         
+        else:
+            context['errors'] = form.errors.items()
+
         return render(request, 'search/result.html', context=context)
 
-    return render(request, 'search/index.html')
+    else:
+        form = SearchForm()  
+    context['form'] = form
+
+    return render(request, 'search/index.html', context=context)
 
 def login(request):
     return render(request, 'search/login.html')
