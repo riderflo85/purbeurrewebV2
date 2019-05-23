@@ -36,6 +36,11 @@ h1, h2, h3, h4
     padding-top: 120px;
 } */
 
+.degrad
+{
+    background-image: radial-gradient(circle at center, rgba(232, 167, 93, 0.7), rgba(196, 85, 37, 0.9));
+}
+
 #img-food
 {
     height: 15vh;
