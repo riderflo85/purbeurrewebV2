@@ -45,7 +45,8 @@
                     <li class="nav-item mr-5">
                         <form action="{% url 'search:index' %}" method="post">
                             {% csrf_token %}
-                            <input class="form-control" type="search" name="foodNav" placeholder="Rechercher" id="fiel-search-nav-bar">
+                            {% comment %} <input class="form-control" type="search" name="foodNav" placeholder="Rechercher" id="fiel-search-nav-bar"> {% endcomment %}
+                            {{ form.research }}
                             <input type="submit" class="d-none">
                         </form>
                     </li>
