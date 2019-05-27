@@ -11,18 +11,18 @@
                 <div class="col-lg-8 align-self-baseline">
                     <div class="card" id="field-login">
                         <div class="card-body">
-                            <form action="">
+                            <form action="{% url 'search:index' %}" method='post'>
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend fav-icon-bg">
                                         <span class="input-group-text fav-icon-bg"><i class="fas fa-user"></i></span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Pseudo ou email">
+                                    {% comment %} <input type="text" class="form-control" placeholder="Pseudo ou email"> {% endcomment %}
                                 </div><!-- end .input-group form-group -->
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend fav-icon-bg">
                                         <span class="input-group-text fav-icon-bg"><i class="fas fa-key"></i></span>
                                     </div>
-                                    <input type="password" class="form-control" placeholder="Mot de passe">
+                                    {% comment %} <input type="password" class="form-control" placeholder="Mot de passe"> {% endcomment %}
                                 </div><!-- end .input-group form-group -->
                                 <div class="form-group">
                                     <input type="submit" value="Connexion" class="btn btn-color-personal float-right login_btn">
