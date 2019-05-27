@@ -1,0 +1,434 @@
+{
+    "boissons": [
+        [
+            "o'verger",
+            "b",
+            4,
+            "cora",
+            "https://static.openfoodfacts.org/images/products/312/448/019/0697/front_fr.24.400.jpg",
+            "https://fr.openfoodfacts.org/produit/3124480190697/o-verger-oasis"
+        ],
+        [
+            "Kokosnuss milch",
+            "d",
+            1,
+            "ekoplaza",
+            "https://static.openfoodfacts.org/images/products/871/357/611/4102/front_fr.6.400.jpg",
+            "https://fr.openfoodfacts.org/produit/8713576114102/kokosnuss-milch-terrasano"
+        ],
+        [
+            "Boisson aux fruits saveur tropical",
+            "e",
+            4,
+            "carrefour",
+            "https://static.openfoodfacts.org/images/products/356/007/053/5583/front_fr.31.400.jpg",
+            "https://fr.openfoodfacts.org/produit/3560070535583/boisson-aux-fruits-saveur-tropical-carrefour"
+        ],
+        [
+            "Fever-tree Premium Ginger Beer",
+            "e",
+            4,
+            "delhaize",
+            "https://static.openfoodfacts.org/images/products/506/010/845/0386/front_fr.10.400.jpg",
+            "https://fr.openfoodfacts.org/produit/5060108450386/fever-tree-premium-ginger-beer"
+        ]
+    ],
+    "cereales-et-derives": [
+        [
+            "Couscous grain moyen",
+            "a",
+            1,
+            "auchan",
+            "https://static.openfoodfacts.org/images/products/325/456/006/6106/front_fr.10.400.jpg",
+            "https://fr.openfoodfacts.org/produit/3254560066106/couscous-grain-moyen-auchan"
+        ],
+        [
+            "Gnocchi aux Pommes de Terre",
+            "c",
+            "4",
+            "intermarche",
+            "https://static.openfoodfacts.org/images/products/325/039/048/6640/front_fr.21.400.jpg",
+            "https://fr.openfoodfacts.org/produit/3250390486640/gnocchi-aux-pommes-de-terre-fiorini"
+        ],
+        [
+            "Semoule fine de qualité supérieure",
+            "a",
+            1,
+            "super-u, leclerc, magasins-u",
+            "https://static.openfoodfacts.org/images/products/303/835/235/7005/front_fr.5.400.jpg",
+            "https://fr.openfoodfacts.org/produit/3038352357005/semoule-fine-de-qualite-superieure-panzani"
+        ],
+        [
+            "Crownfield Choco Rice",
+            "c",
+            "4",
+            "lidl",
+            "https://static.openfoodfacts.org/images/products/20621346/front_fr.20.400.jpg",
+            "https://fr.openfoodfacts.org/produit/20621346/crownfield-choco-rice-fairtrade"
+        ],
+        [
+            "Riz Long Grain",
+            "a",
+            1,
+            "leclerc",
+            "https://static.openfoodfacts.org/images/products/356/470/001/0198/front_fr.18.400.jpg",
+            "https://fr.openfoodfacts.org/produit/3564700010198/riz-long-grain-comptoir-du-grain"
+        ],
+        [
+            "Flocons d'Avoine",
+            "a",
+            1,
+            "leclerc",
+            "https://static.openfoodfacts.org/images/products/356/470/075/2166/front_fr.43.400.jpg",
+            "https://fr.openfoodfacts.org/produit/3564700752166/flocons-d-avoine-brin-de-jour"
+        ],
+        [
+            "Ravioli potiron et petits oignons grillés",
+            "d",
+            4,
+            "leclerc",
+            "https://static.openfoodfacts.org/images/products/800/166/570/4939/front_fr.4.400.jpg",
+            "https://fr.openfoodfacts.org/produit/8001665704939/ravioli-potiron-et-petits-oignons-grilles-giovanni-rana"
+        ],
+        [
+            "Muesli bio aux fruits d'été",
+            "a",
+            3,
+            "leclerc",
+            "https://static.openfoodfacts.org/images/products/311/190/210/0129/front_fr.4.400.jpg",
+            "https://fr.openfoodfacts.org/produit/3111902100129/muesli-bio-aux-fruits-d-ete-charles-vignon"
+        ]
+    ],
+    "desserts": [
+        [
+            "Chocolat Lait",
+            "e",
+            4,
+            "monoprix",
+            "https://static.openfoodfacts.org/images/products/335/003/167/2903/front_fr.5.400.jpg",
+            "https://fr.openfoodfacts.org/produit/3350031672903/chocolat-lait-monoprix-bio"
+        ],
+        [
+            "Purée de pommes sans sucres ajoutés**Contient des sucres naturellement présents",
+            "a",
+            1,
+            "carrefour",
+            "https://static.openfoodfacts.org/images/products/356/007/096/9678/front_fr.24.400.jpg",
+            "https://fr.openfoodfacts.org/produit/3560070969678/puree-de-pommes-sans-sucres-ajoutes-contient-des-sucres-naturellement-presents-carrefour"
+        ],
+        [
+            "Purée de fruits pomme sans sucres ajoutés bio",
+            "a",
+            1,
+            "monoprix",
+            "https://static.openfoodfacts.org/images/products/335/003/194/7582/front_fr.4.400.jpg",
+            "https://fr.openfoodfacts.org/produit/3350031947582/puree-de-fruits-pomme-sans-sucres-ajoutes-bio-monoprix-bio"
+        ],
+        [
+            "Compote Allégée Pomme Pêche",
+            "a",
+            3,
+            "monoprix",
+            "https://static.openfoodfacts.org/images/products/335/003/181/2149/front_fr.10.400.jpg",
+            "https://fr.openfoodfacts.org/produit/3350031812149/compote-allegee-pomme-peche-monoprix"
+        ],
+        [
+            "Gourdes pomme et pomme reinette d'Armorique BREIZ'POM",
+            "a",
+            3,
+            "magasins-u",
+            "https://static.openfoodfacts.org/images/products/348/606/098/8668/front_fr.11.400.jpg",
+            "https://fr.openfoodfacts.org/produit/3486060988668/gourdes-pomme-et-pomme-reinette-d-armorique-breiz-pom-breizh-pom"
+        ],
+        [
+            "Dessert au lait de coco façon panna cotta",
+            "d",
+            "4",
+            "la-vie-claire",
+            "https://static.openfoodfacts.org/images/products/326/619/106/4161/front_fr.4.400.jpg",
+            "https://fr.openfoodfacts.org/produit/3266191064161/dessert-au-lait-de-coco-facon-panna-cotta-la-vie-claire"
+        ],
+        [
+            "Ferme & Fondant saveur citron",
+            "a",
+            4,
+            "u, magasins-u",
+            "https://static.openfoodfacts.org/images/products/302/329/117/2123/front_fr.8.400.jpg",
+            "https://fr.openfoodfacts.org/produit/3023291172123/ferme-fondant-saveur-citron-sveltesse"
+        ],
+        [
+            "Compote en gourdes Pomme Banane",
+            "a",
+            4,
+            "lidl",
+            "https://static.openfoodfacts.org/images/products/20171070/front_fr.3.400.jpg",
+            "https://fr.openfoodfacts.org/produit/20171070/compote-en-gourdes-pomme-banane-vergers-gourmands"
+        ],
+        [
+            "Spécialité de Fruits Pomme Banane",
+            "a",
+            4,
+            "auchan",
+            "https://static.openfoodfacts.org/images/products/359/671/027/3317/front_fr.13.400.jpg",
+            "https://fr.openfoodfacts.org/produit/3596710273317/specialite-de-fruits-pomme-banane-auchan"
+        ],
+        [
+            "Pomme Abricot Compotes allégées en sucres*",
+            "a",
+            3,
+            "carrefour",
+            "https://static.openfoodfacts.org/images/products/327/019/017/1737/front_fr.24.400.jpg",
+            "https://fr.openfoodfacts.org/produit/3270190171737/pomme-abricot-compotes-allegees-en-sucres-carrefour"
+        ],
+        [
+            "Compote pomme poire",
+            "a",
+            3,
+            "leader-price",
+            "https://static.openfoodfacts.org/images/products/326/385/199/2710/front_fr.3.400.jpg",
+            "https://fr.openfoodfacts.org/produit/3263851992710/compote-pomme-poire-leader-price"
+        ],
+        [
+            "Compote allégée pomme banane",
+            "a",
+            4,
+            "leader-price",
+            "https://static.openfoodfacts.org/images/products/326/385/199/0419/front_fr.4.400.jpg",
+            "https://fr.openfoodfacts.org/produit/3263851990419/compote-allegee-pomme-banane-leader-price"
+        ]
+    ],
+    "fruits": [
+        [
+            "Cup Specialites De Pruneaux Moelleux Denoyautes",
+            "a",
+            3,
+            "grand-frais",
+            "https://static.openfoodfacts.org/images/products/366/355/900/0067/front_fr.4.400.jpg",
+            "https://fr.openfoodfacts.org/produit/3663559000067/cup-specialites-de-pruneaux-moelleux-denoyautes-compagnie-des-pruneaux"
+        ],
+        [
+            "Dattes",
+            "c",
+            1,
+            "super-u, intermarche",
+            "https://static.openfoodfacts.org/images/products/319/122/000/6327/front_fr.6.400.jpg",
+            "https://fr.openfoodfacts.org/produit/3191220006327/dattes-brousse-vergez"
+        ]
+    ],
+    "legumes-et-derives": [
+        [
+            "Polpa tomates concassées fines",
+            "a",
+            3,
+            "intermarche",
+            "https://static.openfoodfacts.org/images/products/80042556/front_fr.90.400.jpg",
+            "https://fr.openfoodfacts.org/produit/80042556/polpa-tomates-concassees-fines-mutti"
+        ],
+        [
+            "Confit d'oignons",
+            "e",
+            "3",
+            "la-vie-claire",
+            "https://static.openfoodfacts.org/images/products/326/619/100/6833/front_fr.11.400.jpg",
+            "https://fr.openfoodfacts.org/produit/3266191006833/confit-d-oignons-la-vie-claire"
+        ],
+        [
+            "double concentré de tomates",
+            "a",
+            4,
+            "leclerc",
+            "https://static.openfoodfacts.org/images/products/45428111/front_fr.8.400.jpg",
+            "https://fr.openfoodfacts.org/produit/45428111/double-concentre-de-tomates-eco"
+        ],
+        [
+            "Pulpe de tomates",
+            "a",
+            4,
+            "carrefour",
+            "https://static.openfoodfacts.org/images/products/327/019/018/0982/front_fr.28.400.jpg",
+            "https://fr.openfoodfacts.org/produit/3270190180982/pulpe-de-tomates-carrefour"
+        ],
+        [
+            "Tesco Whole Green Beans In Water",
+            "a",
+            1,
+            "tesco",
+            "https://static.openfoodfacts.org/images/products/505/179/034/8433/front_fr.8.400.jpg",
+            "https://fr.openfoodfacts.org/produit/5051790348433/tesco-whole-green-beans-in-water"
+        ],
+        [
+            "Haricot beurre",
+            "a",
+            3,
+            "auchan",
+            "https://static.openfoodfacts.org/images/products/359/671/046/7655/front_fr.11.400.jpg",
+            "https://fr.openfoodfacts.org/produit/3596710467655/haricot-beurre-auchan"
+        ]
+    ],
+    "poissons": [
+        [
+            "filets de thon au naturel",
+            "a",
+            4,
+            "magasins-u, delhaize",
+            "https://static.openfoodfacts.org/images/products/316/595/010/8019/front_fr.8.400.jpg",
+            "https://fr.openfoodfacts.org/produit/3165950108019/filets-de-thon-au-naturel-saupiquet"
+        ],
+        [
+            "Rillettes de thon fromage frais et ciboulette",
+            "c",
+            4,
+            "auchan",
+            "https://static.openfoodfacts.org/images/products/359/671/045/3221/front_fr.4.400.jpg",
+            "https://fr.openfoodfacts.org/produit/3596710453221/rillettes-de-thon-fromage-frais-et-ciboulette-auchan"
+        ],
+        [
+            "Atún claro natural",
+            "a",
+            "3",
+            "mercadona",
+            "https://static.openfoodfacts.org/images/products/848/000/018/0186/front_fr.8.400.jpg",
+            "https://fr.openfoodfacts.org/produit/8480000180186/atun-claro-natural-hacendado"
+        ],
+        [
+            "Le Coeur Frais fromage ail et fines herbes - 14 bâtonnets",
+            "c",
+            4,
+            "magasins-u",
+            "https://static.openfoodfacts.org/images/products/330/274/825/9021/front_fr.46.400.jpg",
+            "https://fr.openfoodfacts.org/produit/3302748259021/le-coeur-frais-fromage-ail-et-fines-herbes-14-batonnets-fleury-michon"
+        ],
+        [
+            "Foie de morue au naturel",
+            "e",
+            3,
+            "biocoop, bio14",
+            "https://static.openfoodfacts.org/images/products/326/367/099/1116/front_fr.3.400.jpg",
+            "https://fr.openfoodfacts.org/produit/3263670991116/foie-de-morue-au-naturel-phare-d-eckmuhl"
+        ],
+        [
+            "Thon Albacore Au Naturel, 280 Grammes, Marque Nixze",
+            "b",
+            3,
+            "lidl",
+            "https://static.openfoodfacts.org/images/products/20241605/front_fr.5.400.jpg",
+            "https://fr.openfoodfacts.org/produit/20241605/thon-albacore-au-naturel-280-grammes-marque-nixze-nixe"
+        ],
+        [
+            "Thon Albacore au naturel",
+            "b",
+            3,
+            "lidl",
+            "https://static.openfoodfacts.org/images/products/20240769/front_fr.7.400.jpg",
+            "https://fr.openfoodfacts.org/produit/20240769/thon-albacore-au-naturel-nixe"
+        ],
+        [
+            "Thon entier au naturel",
+            "b",
+            "3",
+            "carrefour, leclerc, intermarche",
+            "https://static.openfoodfacts.org/images/products/301/908/006/7015/front_fr.52.400.jpg",
+            "https://fr.openfoodfacts.org/produit/3019080067015/thon-entier-au-naturel-petit-navire"
+        ],
+        [
+            "FILETS DE MAQUEREAUX FUMES AU BOIS DE HËTRE AU POIVRE",
+            "d",
+            1,
+            "casino",
+            "https://static.openfoodfacts.org/images/products/322/247/376/0480/front_fr.14.400.jpg",
+            "https://fr.openfoodfacts.org/produit/3222473760480/filets-de-maquereaux-fumes-au-bois-de-hetre-au-poivre-casino"
+        ]
+    ],
+    "produits-laitiers": [
+        [
+            "Yaourt à la grecque nature (4 pots)",
+            "c",
+            4,
+            "simply, auchan",
+            "https://static.openfoodfacts.org/images/products/359/671/029/3100/front_fr.4.400.jpg",
+            "https://fr.openfoodfacts.org/produit/3596710293100/yaourt-a-la-grecque-nature-4-pots-l-oiseau"
+        ],
+        [
+            "Fromage de chèvre",
+            "c",
+            3,
+            "lidl",
+            "https://static.openfoodfacts.org/images/products/20195595/front_fr.66.400.jpg",
+            "https://fr.openfoodfacts.org/produit/20195595/fromage-de-chevre-petit-chebra"
+        ],
+        [
+            "double plaisir kiwi",
+            "c",
+            4,
+            "leclerc",
+            "https://static.openfoodfacts.org/images/products/345/677/096/0995/front_fr.4.400.jpg",
+            "https://fr.openfoodfacts.org/produit/3456770960995/double-plaisir-kiwi-mamie-nova"
+        ],
+        [
+            "lait fermenté au bifidus panaché",
+            "b",
+            4,
+            "auchan",
+            "https://static.openfoodfacts.org/images/products/359/671/036/3698/front_fr.6.400.jpg",
+            "https://fr.openfoodfacts.org/produit/3596710363698/lait-fermente-au-bifidus-panache-auchan"
+        ],
+        [
+            "Vache grosjean",
+            "d",
+            4,
+            "grand-frais",
+            "https://static.openfoodfacts.org/images/products/322/802/216/0114/front_fr.13.400.jpg",
+            "https://fr.openfoodfacts.org/produit/3228022160114/vache-grosjean"
+        ],
+        [
+            "Gran gusto",
+            "d",
+            3,
+            "magasins-u, carrefour-market",
+            "https://static.openfoodfacts.org/images/products/322/802/215/0078/front_fr.7.400.jpg",
+            "https://fr.openfoodfacts.org/produit/3228022150078/gran-gusto-galbani"
+        ],
+        [
+            "GrandLait® - Demi-écrémé",
+            "b",
+            1,
+            "leclerc, cora",
+            "https://static.openfoodfacts.org/images/products/353/363/157/2006/front_fr.73.400.jpg",
+            "https://fr.openfoodfacts.org/produit/3533631572006/grandlait-demi-ecreme-candia"
+        ],
+        [
+            "Yaourt brasse nature BIO",
+            "b",
+            "4",
+            "intermarche",
+            "https://static.openfoodfacts.org/images/products/325/039/196/1993/front_fr.10.400.jpg",
+            "https://fr.openfoodfacts.org/produit/3250391961993/yaourt-brasse-nature-bio-paturages"
+        ],
+        [
+            "Ferme De Bassignac Yaourt Poire",
+            "b",
+            3,
+            "auchan",
+            "https://static.openfoodfacts.org/images/products/376/016/063/0086/front_fr.10.400.jpg",
+            "https://fr.openfoodfacts.org/produit/3760160630086/ferme-de-bassignac-yaourt-poire"
+        ]
+    ],
+    "viandes": [
+        [
+            "Feuilletés pur beurre escargot",
+            "e",
+            3,
+            "auchan",
+            "https://static.openfoodfacts.org/images/products/359/671/046/8409/front_fr.4.400.jpg",
+            "https://fr.openfoodfacts.org/produit/3596710468409/feuilletes-pur-beurre-escargot-auchan"
+        ],
+        [
+            "Le supérieur cuit à l'étouffée -25%  sel* - 4 tranches",
+            "b",
+            4,
+            "super-u, magasins-u",
+            "https://static.openfoodfacts.org/images/products/309/575/737/0015/front_fr.74.400.jpg",
+            "https://fr.openfoodfacts.org/produit/3095757370015/le-superieur-cuit-a-l-etouffee-25-sel-4-tranches-fleury-michon"
+        ]
+    ]
+}
