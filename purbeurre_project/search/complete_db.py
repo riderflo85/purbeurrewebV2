@@ -9,31 +9,35 @@ except ModuleNotFoundError:
     pass 
 
 
-def pull_data(categ):
-    page = 1
+def pull_data(categ, page):
+    """ Récupération des données de l'API d'OpenFoodFacts """
+
     api = "https://fr.openfoodfacts.org/categorie/{}/{}".format(categ, page)
     payload = {"json": 1}
     response = requests.get(url=api, params=payload)
+    print(response.url)
     try:
         return response.json()
     except json.decoder.JSONDecodeError:
         pass
 
 def table_categorie(categ):
+    """ remplissage de la table catégorie de la BDD """
+
     try:
         for i in categ:
-            #--- remplissage de la table catégorie de la BDD ---#
             new_cat = Categorie()
             new_cat.name = i
             new_cat.save()
-            #---------------------------------------------------#
         return True
     except:
         return False
 
 def table_aliment(cat, dico_food):
+    """ remplissage de la table aliment de la BDD """
+
+    id_cat = 1
     try:
-        id_cat = 1
         for i in cat:
             for food in dico_food[i]:
                 new_food = Aliment()
@@ -46,7 +50,7 @@ def table_aliment(cat, dico_food):
                 new_food.categorie_id = id_cat
                 new_food.save()
             id_cat += 1
-            return True
+        return True
     except:
         return False
 
@@ -106,23 +110,27 @@ def main():
     list_test = []
 
     for i in cat:
-        rep = pull_data(i)
+        page = 1
 
-        for x in rep['products']:
-            try:
-                pn = x["product_name_fr"].replace("\n", " ")
-                ng = x["nutrition_grade_fr"]
-                nova = x["nova_groups"]
-                st = str(x["stores_tags"]).replace("[", "")
-                st = st.replace("]", "")
-                st = st.replace("'", "")
-                img = x["image_url"]
-                url = x["url"]
-                if pn!="" and ng!="" and nova!="" and st!="" and img!="" and url!="":
-                    list_test.append([pn, ng, nova, st, img, url])
-                    dico[i] = list_test
-            except:
-                pass
+        while page <= 40:
+            rep = pull_data(i, page)
+
+            for x in rep['products']:
+                try:
+                    pn = x["product_name_fr"].replace("\n", " ")
+                    ng = x["nutrition_grade_fr"]
+                    nova = x["nova_groups"]
+                    st = str(x["stores_tags"]).replace("[", "")
+                    st = st.replace("]", "")
+                    st = st.replace("'", "")
+                    img = x["image_url"]
+                    url = x["url"]
+                    if pn!="" and ng!="" and nova!="" and st!="" and img!="" and url!="":
+                        list_test.append([pn, ng, nova, st, img, url])
+                        dico[i] = list_test
+                except:
+                    pass
+            page += 1
         list_test = []
 
     sort = delete_duplicates(cat, dico)
