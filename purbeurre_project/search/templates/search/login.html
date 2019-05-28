@@ -11,23 +11,35 @@
                 <div class="col-lg-8 align-self-baseline">
                     <div class="card" id="field-login">
                         <div class="card-body">
-                            <form action="{% url 'search:index' %}" method='post'>
+                            {% if error %}
+                            <h3 class="text-danger bg-dark">Utilisateur incorrect ou mot de passe invalide</h3>
+                            {% endif %}
+
+                            {% if user.is_authenticated %}
+                            <h3 class="text-white">Vous êtes connectez {{ user.username }}!</h3>
+                            {% else %}
+                            <form action="{% url 'search:search_login' %}" method='post'>
+                                {% csrf_token %}
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend fav-icon-bg">
                                         <span class="input-group-text fav-icon-bg"><i class="fas fa-user"></i></span>
                                     </div>
+                                    {{ form.user }}
                                     {% comment %} <input type="text" class="form-control" placeholder="Pseudo ou email"> {% endcomment %}
                                 </div><!-- end .input-group form-group -->
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend fav-icon-bg">
                                         <span class="input-group-text fav-icon-bg"><i class="fas fa-key"></i></span>
                                     </div>
+                                    {{ form.password }}
                                     {% comment %} <input type="password" class="form-control" placeholder="Mot de passe"> {% endcomment %}
                                 </div><!-- end .input-group form-group -->
                                 <div class="form-group">
                                     <input type="submit" value="Connexion" class="btn btn-color-personal float-right login_btn">
                                 </div>
                             </form><!-- end form -->
+                            {% endif %}
+                            
                         </div><!-- end .card-body -->
                         <div class="card-footer">
                             <div class="d-flex justify-content-center links text-white">
