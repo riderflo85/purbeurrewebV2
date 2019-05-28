@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.http import HttpResponseRedirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from .models import Aliment
 from .forms import SearchForm, LoginForm, SignupForm
@@ -50,7 +50,7 @@ def sign_in(request):
 
             if user is not None:
                 login(request=request, user=user)
-                return redirect(reverse(index))
+                return redirect('index')
             else:
                 context['error'] = True
     else:
@@ -86,6 +86,10 @@ def sign_up(request):
     context['form'] = form
 
     return render(request, 'search/sign_up.html', context=context)
+
+def sign_out(request):
+    logout(request)
+    return render(request, 'search/sign_out.html')
 
 def account(request):
     return render(request, 'search/account.html')
