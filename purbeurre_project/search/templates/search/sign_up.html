@@ -11,46 +11,66 @@
                 <div class="col-lg-8 align-self-baseline">
                     <div class="card" id="field-login">
                         <div class="card-body">
-                            <form action="">
+                            {% if errors %}
+                            <div>
+                                {% for key, error in errors %}
+                                {% autoescape off %}
+                                    {{ error }}
+                                {% endautoescape %}
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+
+                            {% if new_user.is_active %}
+                            <h3 class="text-white">Compte créé avec succès</h1>
+                            {% else %}
+                            <form action="{% url 'search:sign_up' %}", method='post'>
+                            {% csrf_token %}
                                 <div class="input-group form-group">
                                     <!-- icon -->
                                     <div class="input-group-prepend fav-icon-bg">
                                         <span class="input-group-text fav-icon-bg"><i class="fas fa-user"></i></span>
                                     </div><!-- end div icon -->
-                                    <input type="text" class="form-control" placeholder="Nom">
+                                    {{ form.last_name }}
+                                    {% comment %} <input type="text" class="form-control" placeholder="Nom"> {% endcomment %}
                                 </div><!-- end .input-group form-group -->
                                 <div class="input-group form-group">
                                     <!-- icon -->
                                     <div class="input-group-prepend fav-icon-bg">
                                         <span class="input-group-text fav-icon-bg"><i class="fas fa-user"></i></span>
                                     </div><!-- end div icon -->
-                                    <input type="text" class="form-control" placeholder="Prénom">
+                                    {{ form.first_name }}
+                                    {% comment %} <input type="text" class="form-control" placeholder="Prénom"> {% endcomment %}
                                 </div><!-- end .input-group form-group -->
                                 <div class="input-group form-group">
                                     <!-- icon -->
                                     <div class="input-group-prepend fav-icon-bg">
                                         <span class="input-group-text fav-icon-bg"><i class="fas fa-user-circle"></i></span>
                                     </div><!-- end div icon -->
-                                    <input type="text" class="form-control" placeholder="Pseudo">
+                                    {{ form.pseudo }}
+                                    {% comment %} <input type="text" class="form-control" placeholder="Pseudo"> {% endcomment %}
                                 </div><!-- end .input-group form-group -->
                                 <div class="input-group form-group">
                                     <!-- icon -->
                                     <div class="input-group-prepend fav-icon-bg">
                                         <span class="input-group-text fav-icon-bg"><i class="fas fa-at"></i></span>
                                     </div><!-- end div icon -->
-                                    <input type="email" class="form-control" placeholder="Email">
+                                    {{ form.email }}
+                                    {% comment %} <input type="email" class="form-control" placeholder="Email"> {% endcomment %}
                                 </div><!-- end .input-group form-group -->
                                 <div class="input-group form-group">
                                     <!-- icon -->
                                     <div class="input-group-prepend fav-icon-bg">
                                         <span class="input-group-text fav-icon-bg"><i class="fas fa-key"></i></span>
                                     </div><!-- end div icon -->
-                                    <input type="password" class="form-control" placeholder="Mot de passe">
+                                    {{ form.password }}
+                                    {% comment %} <input type="password" class="form-control" placeholder="Mot de passe"> {% endcomment %}
                                 </div><!-- end .input-group form-group -->
                                 <div class="form-group">
                                     <input type="submit" value="Inscription" class="btn btn-color-personal float-right login_btn">
                                 </div>
                             </form><!-- end form -->
+                            {% endif %}
                         </div><!-- end .card-body -->
                         <div class="card-footer">
                             <div class="d-flex justify-content-center links text-white">

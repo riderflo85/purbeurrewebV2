@@ -4,11 +4,10 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from .models import Aliment
-from .forms import SearchForm, LoginForm
+from .forms import SearchForm, LoginForm, SignupForm
 
 # Create your views here.
 def index(request):
-
     context = {}
 
     if request.method == 'POST':
@@ -37,21 +36,20 @@ def index(request):
 
     return render(request, 'search/index.html', context=context)
 
-def login(request):
-
+def sign_in(request):
     context = {'error': False,}
 
     if request.method == 'POST':
         form = LoginForm(request.POST)
 
         if form.is_valid():
-            user = form.cleaned_data['user']
+            username = form.cleaned_data['user']
             pwd = form.cleaned_data['password']
-            user = authenticate(username=user, password=pwd)
+            user = authenticate(request, username=username, password=pwd)
             context['user'] = user
 
-            if user:
-                login(request, user)
+            if user is not None:
+                login(request=request, user=user)
                 return redirect(reverse(index))
             else:
                 context['error'] = True
@@ -62,7 +60,32 @@ def login(request):
     return render(request, 'search/login.html', context=context)
 
 def sign_up(request):
-    return render(request, 'search/sign_up.html')
+    context = {'errors': False,}
+
+    if request.method == 'POST':
+        form = SignupForm(request.POST)
+
+        if form.is_valid():
+            pseudo = form.cleaned_data['pseudo']
+            last_name = form.cleaned_data['last_name']
+            first_name = form.cleaned_data['first_name']
+            email = form.cleaned_data['email']
+            pwd = form.cleaned_data['password']
+
+            new_user = User.objects.create_user(pseudo, email, pwd)
+            new_user.last_name = last_name
+            new_user.first_name = first_name
+            new_user.save()
+            context['new_user'] = new_user
+
+        else:
+            context['errors'] = form.errors.items()
+
+    else:
+        form = SignupForm()
+    context['form'] = form
+
+    return render(request, 'search/sign_up.html', context=context)
 
 def account(request):
     return render(request, 'search/account.html')
