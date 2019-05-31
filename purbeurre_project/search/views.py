@@ -50,7 +50,7 @@ def sign_in(request):
 
             if user is not None:
                 login(request=request, user=user)
-                return redirect('index')
+                return redirect(reverse('search:index'))
             else:
                 context['error'] = True
     else:
