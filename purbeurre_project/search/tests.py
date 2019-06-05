@@ -11,4 +11,4 @@ class SatusCodePageTestCase(TestCase):
 
     def test_page_result(self):
         rep = self.cli.get('/result')
-        self.assertEqual(rep.status_code, 404)
+        self.assertEqual(rep.status_code, 200)

@@ -19,7 +19,7 @@ class StatusCodePageTestCase(TestCase):
 
     def test_page_account(self):
         rep = self.cli.get('/user/account')
-        self.assertEqual(rep.status_code, 200)
+        self.assertEqual(rep.status_code, 302)
 
 class SignInTestCase(TestCase):
     def setUp(self):
@@ -29,6 +29,11 @@ class SignInTestCase(TestCase):
         user_test.last_name = 'FooTest'
         user_test.save()
 
-    def test_user_sign_in(self):
+    def test_user_redirect_after_sign_in(self):
         rep = self.cli.post('/user/signin', {'user': 'testUser', 'password': 'test'})
         self.assertEqual(rep.status_code, 302)
+    
+    def test_user_sign_in(self):
+        rep = self.cli.get('/user/signin')
+        print(rep)
+        self.assertEqual(rep.status_code, 200)

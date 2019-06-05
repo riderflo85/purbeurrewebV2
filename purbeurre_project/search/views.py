@@ -23,6 +23,9 @@ def result(request):
     if request.user.is_authenticated:
         context['user_session'] = True
 
+    else:
+        pass
+
     if request.method == 'POST':
 
         form = SearchForm(request.POST)
@@ -42,3 +45,6 @@ def result(request):
             context['errors'] = form.errors.items()
 
         return render(request, 'search/result.html', context=context)
+    
+    else:
+        return render(request, 'search/no_search.html', context=context)
