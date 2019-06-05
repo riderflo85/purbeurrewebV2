@@ -1,0 +1,54 @@
+#field-login
+{
+    width: 50%;
+    margin-left: 26%;
+    background-color: rgba(232, 167, 93, 0.2);
+}
+
+.fav-icon-bg
+{
+    width: 40px;
+    background-color: #DE9440;
+    color: #345A61;
+    border: 1px solid #DE9440;
+    border-radius: 4px;
+}
+
+.btn-color-personal
+{
+    color: #345A61;
+    background-color: #DE9440;
+}
+
+.btn-color-personal:hover
+{
+    color: #345A61;
+    background-color: #E8A75D;
+}
+
+.color-cyan
+{
+    color: #86EBE6;
+}
+
+.link-style:hover
+{
+    text-decoration: none;
+    color: #DE9440;
+}
+
+#image-user
+{
+    margin-top: 4vh;
+    height: 30vh;
+    background-image: url(../img/orig.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.alignement
+{
+    height: 100%;
+    margin-top: 6%;
+}
