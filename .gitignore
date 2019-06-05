@@ -1,4 +1,5 @@
 .vscode
+.env
 Cahier des charges.odt
 fichier a utiliser pour la charte grapphique
 .~lock*
