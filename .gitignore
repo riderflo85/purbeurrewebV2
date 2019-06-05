@@ -4,4 +4,6 @@ fichier a utiliser pour la charte grapphique
 .~lock*
 purbeurre_project/purbeurre_project/__pycache__/
 purbeurre_project/search/__pycache__
+purbeurre_project/usercontrol/__pycache__
 purbeurre_project/search/migrations/__pycache__
+purbeurre_project/usercontrol/migrations/__pycache__

@@ -14,11 +14,11 @@
         <!-- banner -->
         <div class="row text-center align-items-center" id="img-food">
             <div class="col-12">
-                <h1 class="text-success">{{ name }}, {{ id }}, {{ groupe_nova }}</h1>
+                <h1><strong>{{ name }}</strong></h1>
 
                 {% if img %}
                     <style type="text/css">
-                        #img-food{background-color: aquamarine;}
+                        #img-food{background-image: url({{ img }}); background-position: center; background-repeat: repeat-x;}
                     </style>
 
                 {% else %}
@@ -32,7 +32,7 @@
         <!-- content -->
         <div class="row justify-content-center">
 
-            {% if testListFood|length >= 7 %}
+            {% if list_food|length >= 7 %}
                 <style type="text/css">
                     .delimit-display{padding-top: 120px;}
                 </style>
@@ -45,13 +45,13 @@
 
             {% for food in list_food %}
                 <div class="col-12 col-lg-4 my-5">
-                    <div class="card border-primary size-card size-card mx-auto">
+                    <div class="card border-primary size-card mx-auto">
                         <div class="d-flex align-items-center justify-content-center nut-group">
-                                <div class="color-darkblue h2"><strong>A</strong></div>
+                                <div class="color-darkblue h2"><strong>{{ food.nutrition_group|upper }}</strong></div>
                         </div>
-                        <img src="{% static 'search/img/orig.jpg' %}" alt="image" class="card-img-top img-fluid">
+                        <img src="{{ food.image }}" alt="image" class="card-img-top size-img">
                         <div class="card-body">
-                            <h4 class="card-title text-center">{{ food }}</h4>
+                            <h4 class="card-title text-center">{{ food.name }}</h4>
                             <a href="#" class="btn btn-color-personal"><i class="fas fa-save"></i> Sauvegarder</a>
                         </div>
                     </div>
