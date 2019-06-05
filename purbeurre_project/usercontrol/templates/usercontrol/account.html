@@ -10,15 +10,16 @@
         <div class="container-fluid h-100">
             <div class="row text-center">
                 <div class="col-12" id="image-user">
-                    <h1 class="text-white alignement">Prénom de l'utilisateur connecté</h1>
+                    <h1 class="alignement"><strong>{{ pseudo }}</strong></h1>
                 </div>
             </div>
 
             <div class="row pt-5 text-center">
                 <div class="col-12">
-                    <p>Votre adresse email: <strong>email@mail.com</strong></p>
-                    <p>Votre pseudo: <strong>PseuPseu</strong></p>
-                    <p>Votre mot de passe: <strong>**********</strong></p>
+                    <p>Votre adresse email: <strong>{{ email }}</strong></p>
+                    <p>Votre pseudo: <strong>{{ pseudo }}</strong></p>
+                    <p>Votre nom: <strong>{{ last_name }}</strong></p>
+                    <p>Votre prénom: <strong>{{ first_name }}</strong></p>
                 </div>
             </div>
         </div>

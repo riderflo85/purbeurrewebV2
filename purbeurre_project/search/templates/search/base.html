@@ -50,6 +50,7 @@
                             <input type="submit" class="d-none">
                         </form>
                     </li>
+                    {% if user_session %}
                     <li class="nav-item">
                         <a href="{% url 'usercontrol:account' %}"><i class="fas fa-user fa-2x link-style color-cyan"></i></a>
                     </li>
@@ -57,8 +58,13 @@
                         <a class="nav-link js-scroll-trigger" href="#"><img src="{% static 'search/img/noun_Carrot_29691.png' %}" alt=""></a>
                     </li>
                     <li class="nav-item">
+                        <a href="{% url 'usercontrol:sign_out' %}"><i class="fas fa-sign-out-alt fa-2x link-style color-cyan"></i></a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
                         <a href="{% url 'usercontrol:user_login' %}"><i class="fas fa-sign-in-alt fa-2x link-style color-cyan"></i></a>
                     </li>
+                    {% endif %}
                 </ul>
             </div>
         </div>

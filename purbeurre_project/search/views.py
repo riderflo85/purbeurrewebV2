@@ -8,34 +8,20 @@ from .forms import SearchForm
 
 # Create your views here.
 def index(request):
-    context = {}
-
-    # if request.method == 'POST':
-
-    #     form = SearchForm(request.POST)
-    #     if form.is_valid():
-    #         food_search = form.cleaned_data['research']
-    #         food = Aliment.objects.filter(name__contains=food_search)
-
-    #         if food.exists():
-    #             context['id'] = food[0].id
-    #             context['name'] = food[0].name
-    #             context['groupe_nova'] = food[0].nova_group
-    #             context['list_food'] = food
-        
-    #     else:
-    #         context['errors'] = form.errors.items()
-
-    #     return render(request, 'search/result.html', context=context)
-
-    # else:
+    context = {'user_session': False}
     form = SearchForm()  
     context['form'] = form
+
+    if request.user.is_authenticated:
+        context['user_session'] = True
 
     return render(request, 'search/index.html', context=context)
 
 def result(request):
-    context = {}
+    context = {'user_session': False,}
+
+    if request.user.is_authenticated:
+        context['user_session'] = True
 
     if request.method == 'POST':
 

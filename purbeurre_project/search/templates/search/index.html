@@ -12,7 +12,9 @@
         </div>
         <div class="col-lg-8 align-self-baseline">
           <h2 class="text-white-75 font-weight-light mb-5">Trouvez un produit de substitution pour ceux que vous consommez tous les jours.</h2>
-
+          {% if user.authenticated %}
+          <h2>{{user.username}}</h2>
+          {% endif %}
           <form action="{% url 'search:result' %}" method="post" class="form-inline">
             {% csrf_token %}
             <div class="input-group mx-auto">
