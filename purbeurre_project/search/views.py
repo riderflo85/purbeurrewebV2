@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from .models import Aliment
-from .forms import SearchForm, LoginForm, SignupForm
+from .forms import SearchForm
 
 # Create your views here.
 def index(request):
@@ -35,43 +35,6 @@ def index(request):
     context['form'] = form
 
     return render(request, 'search/index.html', context=context)
-
-
-
-def sign_up(request):
-    context = {'errors': False,}
-
-    if request.method == 'POST':
-        form = SignupForm(request.POST)
-
-        if form.is_valid():
-            pseudo = form.cleaned_data['pseudo']
-            last_name = form.cleaned_data['last_name']
-            first_name = form.cleaned_data['first_name']
-            email = form.cleaned_data['email']
-            pwd = form.cleaned_data['password']
-
-            new_user = User.objects.create_user(pseudo, email, pwd)
-            new_user.last_name = last_name
-            new_user.first_name = first_name
-            new_user.save()
-            context['new_user'] = new_user
-
-        else:
-            context['errors'] = form.errors.items()
-
-    else:
-        form = SignupForm()
-    context['form'] = form
-
-    return render(request, 'search/sign_up.html', context=context)
-
-def sign_out(request):
-    logout(request)
-    return render(request, 'search/sign_out.html')
-
-def account(request):
-    return render(request, 'search/account.html')
 
 # def result(request):
     # list_food = []

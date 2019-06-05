@@ -18,7 +18,7 @@
                             {% if user.is_authenticated %}
                             <h3 class="text-white">Vous êtes connectez {{ user.username }}!</h3>
                             {% else %}
-                            <form action="{% url 'search:search_login' %}" method='post'>
+                            <form action="{% url 'usercontrol:user_login' %}" method='post'>
                                 {% csrf_token %}
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend fav-icon-bg">
@@ -43,7 +43,7 @@
                         </div><!-- end .card-body -->
                         <div class="card-footer">
                             <div class="d-flex justify-content-center links text-white">
-                                Vous n’avez pas de compte? <a class="color-cyan link-style" href="{% url 'search:sign_up' %}"> Inscrivez-vous</a>
+                                Vous n’avez pas de compte? <a class="color-cyan link-style" href="{% url 'usercontrol:sign_up' %}"> Inscrivez-vous</a>
                             </div>
                         </div>
                     </div><!-- end .card -->
