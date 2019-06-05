@@ -36,28 +36,7 @@ def index(request):
 
     return render(request, 'search/index.html', context=context)
 
-def sign_in(request):
-    context = {'error': False,}
 
-    if request.method == 'POST':
-        form = LoginForm(request.POST)
-
-        if form.is_valid():
-            username = form.cleaned_data['user']
-            pwd = form.cleaned_data['password']
-            user = authenticate(request, username=username, password=pwd)
-            context['user'] = user
-
-            if user is not None:
-                login(request=request, user=user)
-                return redirect('index')
-            else:
-                context['error'] = True
-    else:
-        form = LoginForm()
-    context['form'] = form
-
-    return render(request, 'search/login.html', context=context)
 
 def sign_up(request):
     context = {'errors': False,}
