@@ -1,5 +1,6 @@
 from django.test import TestCase, Client
 from django.contrib.auth.models import User
+from .forms import SignupForm, LoginForm
 
 class StatusCodePageTestCase(TestCase):
     def setUp(self):
@@ -39,21 +40,34 @@ class UserAuthenticateTestCase(TestCase):
 
     def test_user_is_authenticated(self):
         rep = self.cli.login(username='testUser', password='test')
-        self.assertEqual(rep, True)
+        self.assertTrue(rep)
 
         rep2 = self.cli.get('/user/signin')
         self.assertEqual(rep2.context['user'].get_username(), 'testUser')
 
 
-class CreateNewUserTestCase(TestCase):
-    def test_sign_up(self):
-        cli = Client()
-        rep = cli.post('/user/signup', {
+class FormTestCase(TestCase):
+    def test_form_sign_up(self):
+        form_data = {
             'pseudo': 'testUser',
             'last_name': 'FooTest',
             'first_name': 'Tester',
             'email': 'testuser@founisseur.com',
-            'password': 'test'
-            })
-        
-        print(rep.context['user'])
+            'password': 'longpasswordtest'
+        }
+        form = SignupForm(data=form_data)
+        self.assertTrue(form.is_valid())
+
+    def test_form_sign_in(self):
+        form_data = {
+            'user': 'testUser',
+            'password': 'longpasswordtest',
+        }
+        form = LoginForm(data=form_data)
+        self.assertTrue(form.is_valid())
+    
+    def test_form_field_email(self):
+        form = SignupForm()
+        valid_data = {'test@test.com': 'test@test.com'}
+        invalid_data = {'test.com': ['Saisissez une adresse de courriel valide.']}
+        self.assertFieldOutput(form.fields['email'], valid_data, invalid_data)
