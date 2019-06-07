@@ -112,7 +112,7 @@ def main():
     for i in cat:
         page = 1
 
-        while page <= 40:
+        while page <= 5:
             rep = pull_data(i, page)
 
             for x in rep['products']:
@@ -125,9 +125,11 @@ def main():
                     st = st.replace("'", "")
                     img = x["image_url"]
                     url = x["url"]
+                    nutriments = x["nutriments"]
                     if pn!="" and ng!="" and nova!="" and st!="" and img!="" and url!="":
-                        list_test.append([pn, ng, nova, st, img, url])
+                        list_test.append([pn, ng, nova, st, img, url, nutriments])
                         dico[i] = list_test
+
                 except:
                     pass
             page += 1
@@ -135,7 +137,7 @@ def main():
 
     sort = delete_duplicates(cat, dico)
 
-    with open('result_test.json', 'w') as file:
+    with open('result_testEssai2.json', 'w') as file:
         json.dump(sort, file, indent=4, ensure_ascii=False)
 
 if __name__ == '__main__':

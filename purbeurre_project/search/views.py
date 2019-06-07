@@ -51,6 +51,13 @@ def result(request):
 
 def fooddetail(request, food_id):
     context = {'user_session': False,}
+    nutriscore_dico = {
+        "a": "/static/search/img/nutA.png",
+        "b": "/static/search/img/nutB.png",
+        "c": "/static/search/img/nutC.png",
+        "d": "/static/search/img/nutD.png",
+        "e": "/static/search/img/nutE.png"
+    }
 
     if request.user.is_authenticated:
         context['user_session'] = True
@@ -60,4 +67,10 @@ def fooddetail(request, food_id):
     
     food = get_object_or_404(Aliment, pk=food_id)
     context['food'] = food
+    for k, v in nutriscore_dico.items():
+        if food.nutrition_group == k:
+            context['nutriscore_img'] = v
+        else:
+            pass
+
     return render(request, 'search/food_detail.html', context=context)
