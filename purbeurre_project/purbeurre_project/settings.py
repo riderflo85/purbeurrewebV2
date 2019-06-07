@@ -77,28 +77,29 @@ WSGI_APPLICATION = 'purbeurre_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'purbeurre_db',
-#     'USER': 'pi',
-#     'PASSWORD': 'tiflo300',
-#     'HOST': '192.168.1.17',
-#     'PORT': '5432',
-#     }
-# }
-
-# Configuration de la base de données pour du local
+# Configuration de la base de données pour du distant
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'purbeurre_db',
-    'USER': 'florent',
+    'USER': 'pi',
     'PASSWORD': 'tiflo300',
-    'HOST': '',
+    'HOST': '192.168.1.17',
     'PORT': '5432',
     }
 }
+
+# Configuration de la base de données pour du local
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'purbeurre_db',
+#     'USER': 'florent',
+#     'PASSWORD': 'tiflo300',
+#     'HOST': '',
+#     'PORT': '5432',
+#     }
+# }
 
 
 # Password validation

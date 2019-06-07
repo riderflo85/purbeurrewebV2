@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
@@ -48,3 +48,16 @@ def result(request):
     
     else:
         return render(request, 'search/no_search.html', context=context)
+
+def fooddetail(request, food_id):
+    context = {'user_session': False,}
+
+    if request.user.is_authenticated:
+        context['user_session'] = True
+    
+    else:
+        pass
+    
+    food = get_object_or_404(Aliment, pk=food_id)
+    context['food'] = food
+    return render(request, 'search/food_detail.html', context=context)

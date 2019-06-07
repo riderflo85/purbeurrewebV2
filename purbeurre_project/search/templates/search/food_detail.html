@@ -1,0 +1,47 @@
+{% extends 'search/base.html' %}
+{% block content %}
+
+<style type="text/css">
+    #mainNav{background-color: #345A61;}
+</style>
+
+<div class="height-display">
+    <div class="container-fluid h-100">
+
+        <!-- banner -->
+        <div class="row text-center align-items-center" id="img-food">
+            <div class="col-12">
+                <h1><strong>{{ food.name|lower }}</strong></h1>
+
+                {% if food.image %}
+                <style type="text/css">
+                    #img-food{background-image: url({{ food.image }});
+                    background-position: center;
+                    background-repeat: repeat-x;}
+                </style>
+
+                {% else %}
+                <h1 class="text-warning">pas d'image</h1>
+
+                {% endif %}
+            </div><!-- end .col-12 -->
+        </div><!-- end .row... -->
+
+        <!-- content -->
+        <div class="row text-center">
+            <div class="col-12 col-lg-6 my-5">
+                <p class="lead m-0">nutriscore (image)</p>
+            </div>
+            <div class="col-12 col-lg-6 my-5">
+                <p class="lead m-0">repère nutritionnel pour 100g (image)</p>
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col-12">
+                <a href="{{ food.link }}" class="btn btn-primary"><h3>Voir la fiche d'OpenFoodFacts</h3></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
