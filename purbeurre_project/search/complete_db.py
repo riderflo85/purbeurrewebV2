@@ -47,6 +47,7 @@ def table_aliment(cat, dico_food):
                 new_food.shop = food[3]
                 new_food.image = food[4]
                 new_food.link = food[5]
+                new_food.nutriments = food[6]
                 new_food.categorie_id = id_cat
                 new_food.save()
             id_cat += 1
@@ -112,7 +113,7 @@ def main():
     for i in cat:
         page = 1
 
-        while page <= 5:
+        while page <= 10:
             rep = pull_data(i, page)
 
             for x in rep['products']:
@@ -137,7 +138,7 @@ def main():
 
     sort = delete_duplicates(cat, dico)
 
-    with open('result_testEssai2.json', 'w') as file:
+    with open('result_test.json', 'w') as file:
         json.dump(sort, file, indent=4, ensure_ascii=False)
 
 if __name__ == '__main__':

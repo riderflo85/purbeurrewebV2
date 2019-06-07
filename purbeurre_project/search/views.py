@@ -73,4 +73,8 @@ def fooddetail(request, food_id):
         else:
             pass
 
+    dico_test = {'1': 'test1', '2': 'test2', '3': 'test3'}
+    context['test'] = dico_test
+    context['test2'] = dict(eval(food.nutriments))
+
     return render(request, 'search/food_detail.html', context=context)

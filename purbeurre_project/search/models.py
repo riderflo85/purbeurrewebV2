@@ -7,6 +7,7 @@ class Aliment(models.Model):
     shop = models.CharField(max_length=500, verbose_name="Boutique d'achat")
     image = models.CharField(max_length=300)
     link = models.CharField(max_length=300, verbose_name="Lien internet")
+    nutriments = models.TextField()
     categorie = models.ForeignKey('Categorie', on_delete=models.CASCADE)
 
     class Meta:

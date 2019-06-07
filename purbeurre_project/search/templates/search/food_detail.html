@@ -32,8 +32,20 @@
             <div class="col-12 col-lg-6 my-5">
                 <img class="img-fluid" src="{{ nutriscore_img }}" alt="nutriscore">
             </div>
-            <div class="col-12 col-lg-6 my-5">
-                <p class="lead m-0">repère nutritionnel pour 100g (image)</p>
+            <div class="col-12 col-lg-6 my-5 d-flex justify-content-center">
+                <table>
+                    <tr>
+                        <th>Type</th>
+                        <th>Quantitée</th>
+                    </tr>
+                    {% for k, v in test2.items %}
+                    <tr>
+                        <td>{{ k }}</td>
+                        <td>{{ v }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+                
             </div>
         </div>
         <div class="row text-center">
