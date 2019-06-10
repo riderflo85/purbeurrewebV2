@@ -21,7 +21,7 @@ def pull_data(categ, page):
     except json.decoder.JSONDecodeError:
         pass
 
-def table_categorie(categ):
+def category_table(categ):
     """ remplissage de la table catégorie de la BDD """
 
     try:
@@ -33,7 +33,7 @@ def table_categorie(categ):
     except:
         return False
 
-def table_aliment(cat, dico_food):
+def food_table(cat, dico_food):
     """ remplissage de la table aliment de la BDD """
 
     id_cat = 1
@@ -56,7 +56,7 @@ def table_aliment(cat, dico_food):
         return False
 
 def delete_duplicates(categorie, dico_not_sorted):
-    """ Data Sorting Function. Removes duplicates from a json file"""
+    """ Data Sorting Function. Removes duplicates from a json file """
 
     list_sort = []
     temp = []
@@ -138,8 +138,9 @@ def main():
 
     sort = delete_duplicates(cat, dico)
 
-    with open('result_test.json', 'w') as file:
-        json.dump(sort, file, indent=4, ensure_ascii=False)
+    return sort
+    # with open('result_test.json', 'w') as file:
+    #     json.dump(sort, file, indent=4, ensure_ascii=False)
 
 if __name__ == '__main__':
     main()
