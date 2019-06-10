@@ -49,7 +49,9 @@
                         <div class="d-flex align-items-center justify-content-center nut-group">
                                 <div class="color-darkblue h2"><strong>{{ food.nutrition_group|upper }}</strong></div>
                         </div>
-                        <img src="{{ food.image }}" alt="image" class="card-img-top size-img">
+                        <a href="{% url 'search:food_detail' food.id %}">
+                            <img src="{{ food.image }}" alt="image" class="card-img-top size-img">
+                        </a>
                         <div class="card-body">
                             <h4 class="card-title text-center">{{ food.name }}</h4>
                             <a href="#" class="btn btn-color-personal"><i class="fas fa-save"></i> Sauvegarder</a>
