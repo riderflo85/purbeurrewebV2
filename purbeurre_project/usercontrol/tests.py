@@ -44,6 +44,14 @@ class UserAuthenticateTestCase(TestCase):
 
         rep2 = self.cli.get('/user/signin')
         self.assertEqual(rep2.context['user'].get_username(), 'testUser')
+    
+    def test_signup(self):
+        user_test2 = User.objects.create_user(username='testUser2', email='testuser@founisseur.com', password='test')
+        user_test2.first_name = 'Tester'
+        user_test2.last_name = 'FooTest'
+        user_test2.save()
+        rep = User.objects.get(username__contains='testUser2')
+        self.assertEqual(rep.username, 'testUser2')
 
 
 class FormTestCase(TestCase):

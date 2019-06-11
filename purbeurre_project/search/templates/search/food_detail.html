@@ -1,5 +1,6 @@
 {% extends 'search/base.html' %}
 {% block content %}
+{% load static %}
 
 <style type="text/css">
     #mainNav{background-color: #345A61;}
@@ -30,8 +31,10 @@
         <!-- content -->
         <div class="row text-center">
             <div class="col-12 col-lg-6 my-5">
-                <img class="img-fluid" src="{{ nutriscore_img }}" alt="nutriscore">
+            {% with 'search/img/nut'|add:food.nutrition_group|add:'.png' as img_url %}
+                <img class="img-fluid" src="{% static img_url %}" alt="nutriscore">
             </div>
+            {% endwith %}
             <div class="col-12 col-lg-6 my-5 d-flex justify-content-center">
                 <table>
                     <tr>
@@ -57,3 +60,12 @@
 </div>
 
 {% endblock content %}
+
+
+{% comment %} {% with 'search/img/nut'|add:food.nutriscore|add:'.png' as img_url %} 
+{% static img_url %} 
+{% static 'search/img/nut'|add:food.nutriscore|add:'.png' } 
+fat models, thin views 
+def get_img_url(self): 
+return 'search/img/nut' + self.nutriscore.upper() + '.png' 
+<img src='{{ fod.get_img_url }}'>  {% endcomment %}

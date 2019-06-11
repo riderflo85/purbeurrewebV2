@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, JsonResponse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
+import json
 from .models import Aliment
 from .forms import SearchForm
 
@@ -78,3 +79,10 @@ def fooddetail(request, food_id):
     context['test2'] = dict(eval(food.nutriments))
 
     return render(request, 'search/food_detail.html', context=context)
+
+def savefood(request):
+    req = request.POST['idFood']
+    # data = json.loads(req)
+    print(req)
+
+    return JsonResponse({'ServerResponse': 'okay'})
