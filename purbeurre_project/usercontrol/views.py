@@ -6,7 +6,7 @@ from .forms import LoginForm, SignupForm
 
 # Create your views here.
 def sign_in(request):
-    context = {'error': False, 'user_session': False,}
+    context = {'error': False,}
 
     if request.method == 'POST':
         form = LoginForm(request.POST)
@@ -19,7 +19,6 @@ def sign_in(request):
 
             if user_log is not None:
                 login(request=request, user=user_log)
-                context['user_session'] = True
                 return redirect(reverse('search:index'))
             else:
                 context['error'] = True
@@ -30,7 +29,7 @@ def sign_in(request):
     return render(request, 'usercontrol/login.html', context=context)
 
 def sign_up(request):
-    context = {'errors': False, 'user_session': False,}
+    context = {'errors': False,}
 
     if request.method == 'POST':
         form = SignupForm(request.POST)
@@ -59,19 +58,17 @@ def sign_up(request):
 
 def sign_out(request):
     logout(request)
-    context = {'user_session': False,}
 
-    return render(request, 'usercontrol/sign_out.html', context=context)
+    return render(request, 'usercontrol/sign_out.html')
 
 def account(request):
-    context = {'user_session': False,}
+    context = {}
 
     if request.user.is_authenticated:
         context['pseudo'] = request.user
         context['first_name'] = request.user.first_name
         context['last_name'] = request.user.last_name
         context['email'] = request.user.email
-        context['user_session'] = True
 
     else:
         return redirect(reverse('usercontrol:user_login'))

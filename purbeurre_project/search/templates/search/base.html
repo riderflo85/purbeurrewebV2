@@ -50,7 +50,7 @@
                             <input type="submit" class="d-none">
                         </form>
                     </li>
-                    {% if user_session %}
+                    {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a href="{% url 'usercontrol:account' %}"><i class="fas fa-user fa-2x link-style color-cyan"></i></a>
                     </li>
@@ -81,7 +81,7 @@
     </footer>
 
     <!-- Variable for JavaScript -->
-    <div class="d-none" id="user_session">{{ user_session }}</div>
+    <div class="d-none" id="user_session">{{ user.is_authenticated }}</div>
 
     <!-- Bootstrap core JavaScript -->
     <script src="{% static 'search/vendor/jquery/jquery.min.js' %}"></script>
