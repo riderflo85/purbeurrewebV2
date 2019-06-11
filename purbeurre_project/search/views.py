@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect, JsonResponse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 import json
-from .models import Aliment
+from .models import Aliment, Favoris
 from .forms import SearchForm
 
 # Create your views here.
@@ -46,14 +46,15 @@ def fooddetail(request, food_id):
     
     food = get_object_or_404(Aliment, pk=food_id)
     context['food'] = food
-
     context['nutriments'] = dict(eval(food.nutriments))
 
     return render(request, 'search/food_detail.html', context=context)
 
 def savefood(request):
     req = request.POST['idFood']
-    # data = json.loads(req)
-    print(req)
+    fav = Favoris()
+    fav.user = request.user
+    fav.substitute = Aliment.objects.get(pk=req)
+    fav.save()
 
     return JsonResponse({'ServerResponse': 'okay'})

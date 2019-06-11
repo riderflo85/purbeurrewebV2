@@ -38,7 +38,7 @@ function main() {
     var titleModalBox = document.getElementById('titleBox');
     var bodyModalBox = document.getElementById('bodyBox');
 
-    if (userSession === 'False') {
+    if (userSession === 'True') {
 
         for (let i = 0; i < btn.length; i++) {
 
@@ -52,14 +52,17 @@ function main() {
                     data: {'idFood': btn[i].childNodes[0].textContent},
                     success: function (data) {
                         console.log(data);
+                        titleModalBox.textContent = 'Sauvegarde...';
+                        bodyModalBox.textContent = 'Le produit ' + nameFood + ' a bien été ajouter à vos favoris';
+                        $('#modalBox').modal();
                     },
                     error: function (error) {
                         console.log(error);
+                        titleModalBox.textContent = 'Erreur';
+                        bodyModalBox.textContent = 'Le produit ' + nameFood + " n'a pas été ajouter à vos favoris.\nUne erreur c'est produite.";
+                        $('#modalBox').modal();
                     }
                 })
-                titleModalBox.textContent = 'Sauvegarde...';
-                bodyModalBox.textContent = 'Le produit ' + nameFood + ' a bien été ajouter à vos favoris';
-                $('#modalBox').modal();
             });
         }
     }else {
