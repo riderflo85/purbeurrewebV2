@@ -31,7 +31,7 @@
 
         <!-- content -->
         <div class="row justify-content-center">
-
+            <div class="d-none" id="lengthFood">{{ list_food|length }}</div>
             {% if list_food|length >= 7 %}
                 <style type="text/css">
                     .delimit-display{padding-top: 120px;}
@@ -54,13 +54,31 @@
                         </a>
                         <div class="card-body">
                             <h4 class="card-title text-center">{{ food.name }}</h4>
-                            <a href="#" class="btn btn-color-personal"><i class="fas fa-save"></i> Sauvegarder</a>
+                            <a href="#" class="btn btn-color-personal btn-save-food"><p class="d-none">{{ food.id }}</p><i class="fas fa-save"></i> Sauvegarder</a>
                         </div>
                     </div>
                 </div>
             {% endfor %}
 
-        </div>
+            <div class="modal fade" tabindex="-1" role="dialog" id="modalBox">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="titleBox"></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div><!-- end .modal-header -->
+                        <div class="modal-body">
+                            <p class="lead" id="bodyBox"></p>
+                        </div><!-- end .modal-body -->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Fermer</button>
+                        </div><!-- end .modal-footer -->
+                    </div><!-- end .modal-content -->
+                </div><!-- end .modal-dialog -->
+            </div><!-- end .modal -->
+        </div><!-- end .row justify-content-center -->
     </div><!-- end .container-fluid h-100 -->
 </header>
 {% endblock content %}
