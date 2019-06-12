@@ -1,11 +1,10 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from django.urls import reverse
-from django.http import HttpResponseRedirect, JsonResponse
-from django.contrib.auth import authenticate, login, logout
+from django.shortcuts import render, get_object_or_404
+from django.http import JsonResponse
 from django.contrib.auth.models import User
 import json
 from .models import Aliment, Favoris
 from .forms import SearchForm
+from .substitute import substitute
 
 # Create your views here.
 def index(request):
@@ -24,6 +23,7 @@ def result(request):
         if form.is_valid():
             food_search = form.cleaned_data['research']
             food = Aliment.objects.filter(name__contains=food_search)
+            sub = substitute(food[0])
 
             if food.exists():
                 context['id'] = food[0].id
@@ -31,7 +31,7 @@ def result(request):
                 context['groupe_nova'] = food[0].nova_group
                 context['nutrition_group'] = food[0].nutrition_group
                 context['img'] = food[0].image
-                context['list_food'] = food
+                context['list_food'] = sub
         
         else:
             context['errors'] = form.errors.items()
