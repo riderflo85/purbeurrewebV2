@@ -15,17 +15,6 @@
         <div class="row text-center align-items-center" id="img-food">
             <div class="col-12">
                 <h1><strong>Vos favoris enregistrés</strong></h1>
-
-                {% if img %}
-                    <style type="text/css">
-                        #img-food{background-image: url({{ img }}); background-position: center; background-repeat: repeat-x;}
-                    </style>
-
-                {% else %}
-                    <h1 class="text-warning">pas d'image</h1>
-
-                {% endif %}
-
             </div><!-- end .col-12 -->
         </div><!-- end .row -->
 
@@ -43,6 +32,7 @@
                 </style>
             {% endif %}
 
+            {% if list_food %}
             {% for food in list_food %}
                 <div class="col-12 col-lg-4 my-5">
                     <div class="card border-primary size-card mx-auto">
@@ -54,11 +44,15 @@
                         </a>
                         <div class="card-body">
                             <h4 class="card-title text-center">{{ food.name }}</h4>
-                            <a href="#" class="btn btn-color-personal btn-save-food"><p class="d-none">{{ food.id }}</p><i class="fas fa-save"></i> Sauvegarder</a>
                         </div>
                     </div>
                 </div>
             {% endfor %}
+            {% else %}
+            <div class="col-12">
+                <h3 class="text-secondary">Vous n'avez pas de favoris enregistrés.</h3>
+            </div>
+            {% endif %}
 
         </div><!-- end .row justify-content-center -->
     </div><!-- end .container-fluid h-100 -->

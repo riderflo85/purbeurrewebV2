@@ -26,12 +26,16 @@ def result(request):
             sub = substitute(food[0])
 
             if food.exists():
+                context['match'] = True
                 context['id'] = food[0].id
                 context['name'] = food[0].name
                 context['groupe_nova'] = food[0].nova_group
                 context['nutrition_group'] = food[0].nutrition_group
                 context['img'] = food[0].image
                 context['list_food'] = sub
+            
+            else:
+                context['match'] = False
         
         else:
             context['errors'] = form.errors.items()
@@ -60,4 +64,8 @@ def savefood(request):
     return JsonResponse({'ServerResponse': 'okay'})
 
 def myfood(request):
-    return render(request, 'search/my_food.html')
+    context = {}
+    if request.user.is_authenticated:
+        food_save = Favoris.objects.filter(user=request.user.id)
+        context['food'] = food_save
+    return render(request, 'search/my_food.html', context=context)
