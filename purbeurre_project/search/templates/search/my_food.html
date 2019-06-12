@@ -1,0 +1,66 @@
+{% extends 'search/base.html' %}
+
+{% block content %}
+{% load static %}
+
+<style type="text/css">
+    #mainNav{background-color: #345A61;}
+</style>
+
+<header class="delimit-display degrad">
+
+    <div class="container-fluid h-100">
+
+        <!-- banner -->
+        <div class="row text-center align-items-center" id="img-food">
+            <div class="col-12">
+                <h1><strong>Vos favoris enregistrés</strong></h1>
+
+                {% if img %}
+                    <style type="text/css">
+                        #img-food{background-image: url({{ img }}); background-position: center; background-repeat: repeat-x;}
+                    </style>
+
+                {% else %}
+                    <h1 class="text-warning">pas d'image</h1>
+
+                {% endif %}
+
+            </div><!-- end .col-12 -->
+        </div><!-- end .row -->
+
+        <!-- content -->
+        <div class="row justify-content-center">
+            <div class="d-none" id="lengthFood">{{ list_food|length }}</div>
+            {% if list_food|length >= 7 %}
+                <style type="text/css">
+                    .delimit-display{padding-top: 120px;}
+                </style>
+            
+            {% else %}
+                <style type="text/css">
+                    .delimit-display{height: 100vh; padding-top: 120px;}
+                </style>
+            {% endif %}
+
+            {% for food in list_food %}
+                <div class="col-12 col-lg-4 my-5">
+                    <div class="card border-primary size-card mx-auto">
+                        <div class="d-flex align-items-center justify-content-center nut-group">
+                                <div class="color-darkblue h2"><strong>{{ food.nutrition_group|upper }}</strong></div>
+                        </div>
+                        <a href="{% url 'search:food_detail' food.id %}">
+                            <img src="{{ food.image }}" alt="image" class="card-img-top size-img">
+                        </a>
+                        <div class="card-body">
+                            <h4 class="card-title text-center">{{ food.name }}</h4>
+                            <a href="#" class="btn btn-color-personal btn-save-food"><p class="d-none">{{ food.id }}</p><i class="fas fa-save"></i> Sauvegarder</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div><!-- end .row justify-content-center -->
+    </div><!-- end .container-fluid h-100 -->
+</header>
+{% endblock content %}

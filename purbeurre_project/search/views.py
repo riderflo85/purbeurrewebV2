@@ -58,3 +58,6 @@ def savefood(request):
     fav.save()
 
     return JsonResponse({'ServerResponse': 'okay'})
+
+def myfood(request):
+    return render(request, 'search/my_food.html')
