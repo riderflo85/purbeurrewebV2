@@ -67,5 +67,6 @@ def myfood(request):
     context = {}
     if request.user.is_authenticated:
         food_save = Favoris.objects.filter(user=request.user.id)
-        context['food'] = food_save
+        context['list_food'] = food_save
+
     return render(request, 'search/my_food.html', context=context)

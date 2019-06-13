@@ -1,12 +1,8 @@
-window.onload = function() {
-    main()
-};
-
-function main() {
+function notMatch() {
 
     var match = document.getElementById('match');
+
     if (match !== null) {
-        console.log("pas trouver");
         var titleBox = document.getElementById('titleBox');
         var bodyBox = document.getElementById('bodyBox');
         var buttonClose = document.getElementById('btnClose');

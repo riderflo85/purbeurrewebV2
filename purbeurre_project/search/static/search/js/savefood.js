@@ -1,5 +1,6 @@
 window.onload = function() {
     main()
+    notMatch() // see the notmatch.js file for more details
 };
 
 function main() {
