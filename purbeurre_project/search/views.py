@@ -23,9 +23,9 @@ def result(request):
         if form.is_valid():
             food_search = form.cleaned_data['research']
             food = Aliment.objects.filter(name__contains=food_search)
-            sub = substitute(food[0])
 
             if food.exists():
+                sub = substitute(food[0])
                 context['match'] = True
                 context['id'] = food[0].id
                 context['name'] = food[0].name
