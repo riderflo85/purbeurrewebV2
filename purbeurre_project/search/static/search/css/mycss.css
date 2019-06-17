@@ -8,6 +8,11 @@ h1, h2, h3, h4
     font-family: "Open Sans", sans-serif;
 }
 
+a:hover
+{
+    text-decoration: none;
+}
+
 #fiel-search-nav-bar
 {
     background-color: rgba(212, 212, 212, 0.733);
