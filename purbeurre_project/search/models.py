@@ -19,6 +19,9 @@ class Aliment(models.Model):
 
     def get_img_url(self):
         return '/static/search/img/nut{}.png'.format(self.nutrition_group.upper())
+    
+    def get_nutriments(self):
+        return dict(eval(self.nutriments))
 
 class Categorie(models.Model):
     name = models.CharField(max_length=45, null=False, unique=True, verbose_name="Nom de la catégorie")

@@ -11,11 +11,11 @@
         <!-- banner -->
         <div class="row text-center align-items-center" id="img-food">
             <div class="col-12">
-                <h1><strong>{{ food.name|lower }}</strong></h1>
+                <h1><strong>{{ aliment.name|lower }}</strong></h1>
 
-                {% if food.image %}
+                {% if aliment.image %}
                 <style type="text/css">
-                    #img-food{background-image: url({{ food.image }});
+                    #img-food{background-image: url({{ aliment.image }});
                     background-position: center;
                     background-repeat: repeat-x;}
                 </style>
@@ -30,7 +30,7 @@
         <!-- content -->
         <div class="row text-center">
             <div class="col-12 col-lg-6 my-5">
-                <img class="img-fluid" src="{{ food.get_img_url }}" alt="nutriscore">
+                <img class="img-fluid" src="{{ aliment.get_img_url }}" alt="nutriscore">
             </div>
             <div class="col-12 col-lg-6 my-5 d-flex justify-content-center">
                 <table>
@@ -38,19 +38,21 @@
                         <th>Type</th>
                         <th>Quantitée</th>
                     </tr>
+                    {% with aliment.get_nutriments as nutriments %}
                     {% for k, v in nutriments.items %}
                     <tr>
                         <td>{{ k }}</td>
                         <td>{{ v }}</td>
                     </tr>
                     {% endfor %}
+                    {% endwith %}
                 </table>
                 
             </div>
         </div>
         <div class="row text-center">
             <div class="col-12">
-                <a href="{{ food.link }}" class="btn btn-primary"><h3>Voir la fiche d'OpenFoodFacts</h3></a>
+                <a href="{{ aliment.link }}" class="btn btn-primary"><h3>Voir la fiche d'OpenFoodFacts</h3></a>
             </div>
         </div>
     </div>

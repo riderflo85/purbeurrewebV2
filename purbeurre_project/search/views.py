@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import JsonResponse
+from django.views import generic
 from django.contrib.auth.models import User
 import json
 from .models import Aliment, Favoris
@@ -45,14 +46,19 @@ def result(request):
     else:
         return render(request, 'search/no_search.html', context=context)
 
-def fooddetail(request, food_id):
-    context = {}
-    
-    food = get_object_or_404(Aliment, pk=food_id)
-    context['food'] = food
-    context['nutriments'] = dict(eval(food.nutriments))
+class DetailView(generic.DetailView):
+    model = Aliment
+    template_name = 'search/food_detail.html'
 
-    return render(request, 'search/food_detail.html', context=context)
+
+# def fooddetail(request, food_id):
+#     context = {}
+    
+#     food = get_object_or_404(Aliment, pk=food_id)
+#     context['food'] = food
+#     context['nutriments'] = dict(eval(food.nutriments))
+
+#     return render(request, 'search/food_detail.html', context=context)
 
 def savefood(request):
     req = request.POST['idFood']
