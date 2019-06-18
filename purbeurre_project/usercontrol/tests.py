@@ -73,9 +73,3 @@ class FormTestCase(TestCase):
         }
         form = LoginForm(data=form_data)
         self.assertTrue(form.is_valid())
-    
-    def test_form_field_email(self):
-        form = SignupForm()
-        valid_data = {'test@test.com': 'test@test.com'}
-        invalid_data = {'test.com': ['Saisissez une adresse de courriel valide.']}
-        self.assertFieldOutput(form.fields['email'], valid_data, invalid_data)
