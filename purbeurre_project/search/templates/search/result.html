@@ -14,11 +14,11 @@
         <!-- banner -->
         <div class="row text-center align-items-center" id="img-food">
             <div class="col-12">
-                <h1><strong>{{ name }}</strong></h1>
+                <h1><strong>{{ food.name }}</strong></h1>
 
-                {% if img %}
+                {% if food.image %}
                     <style type="text/css">
-                        #img-food{background-image: url({{ img }}); background-position: center; background-repeat: repeat-x;}
+                        #img-food{background-image: url({{ food.image }}); background-position: center; background-repeat: repeat-x;}
                     </style>
 
                 {% else %}

@@ -28,11 +28,7 @@ def result(request):
             if food.exists():
                 sub = substitute(food[0])
                 context['match'] = True
-                context['id'] = food[0].id
-                context['name'] = food[0].name
-                context['groupe_nova'] = food[0].nova_group
-                context['nutrition_group'] = food[0].nutrition_group
-                context['img'] = food[0].image
+                context['food'] = food[0]
                 context['list_food'] = sub
             
             else:
