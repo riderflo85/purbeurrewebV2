@@ -66,3 +66,13 @@ div.h2
 {
     height: 25rem;
 }
+
+.link-color
+{
+    color: #0275d8;
+}
+
+.bg-legacy
+{
+    background-color: rgba(191, 191, 191, 0.5);
+}
