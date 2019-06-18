@@ -76,3 +76,6 @@ def myfood(request):
         context['list_food'] = food_save
 
     return render(request, 'search/my_food.html', context=context)
+
+def legalmention(request):
+    return render(request, 'search/legal_mention.html')
