@@ -101,6 +101,24 @@ def delete_duplicates(categorie, dico_not_sorted):
 
     return dico_sorted
 
+def sorted_nutriment(nut):
+    """ Get back only specific nutriments """
+
+    nut_sorted = {}
+    list_nut_accepted = [
+        'fat_100g', 'sugars_100g', 'saturated-fat_100g', 'salt_100g'
+    ]
+
+    for k, v in nut.items():
+
+        if k in list_nut_accepted:
+            nut_sorted[k] = v
+
+        else:
+            pass
+    
+    return nut_sorted
+
 def main():
     cat = [
         "boissons", "cereales-et-derives", "desserts", "fruits",
@@ -126,7 +144,7 @@ def main():
                     st = st.replace("'", "")
                     img = x["image_url"]
                     url = x["url"]
-                    nutriments = x["nutriments"]
+                    nutriments = sorted_nutriment(x["nutriments"])
                     if pn!="" and ng!="" and nova!="" and st!="" and img!="" and url!="":
                         list_test.append([pn, ng, nova, st, img, url, nutriments])
                         dico[i] = list_test
