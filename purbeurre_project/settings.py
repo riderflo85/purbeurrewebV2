@@ -110,6 +110,18 @@ DATABASES = {
     }
 }
 
+if os.environ.get('ENV') == 'PRODUCTION':
+    DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'ddoul5ni3vp8eg',
+    'USER': 'vhworxizolqlla',
+    'PASSWORD': '16edc030ef11e402a44c67de84cd7a7c9f6ce88b31279f0a2d9d6b66867ff275',
+    'HOST': 'ec2-23-21-156-171.compute-1.amazonaws.com',
+    'PORT': '5432',
+    }
+}
+
 # Configuration de la base de données pour du local
 # DATABASES = {
 #     'default': {
