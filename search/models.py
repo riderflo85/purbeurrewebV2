@@ -32,28 +32,9 @@ class Categorie(models.Model):
     def __str__(self):
         return self.name
 
-# class User(models.Model):
-#     last_name = models.CharField(max_length=45, null=False, verbose_name="Nom d'utilisateur")
-#     first_name = models.CharField(max_length=45, null=False, verbose_name="Prénom d'utilisateur")
-#     pseudo = models.CharField(max_length=45, null=False, unique=True)
-#     email = models.EmailField(max_length=80, null=False)
-#     password = models.CharField(max_length=88, null=False)
-#     favoris_save = models.ManyToManyField(Aliment, through='Favoris', through_fields=('user', 'substitute'))
-
-#     class Meta:
-#         verbose_name = "utilisateur"
-
-#     def __str__(self):
-#         return "{} {}".format(self.last_name, self.first_name)
-
 class Favoris(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    # aliment = models.ForeignKey(Aliment, on_delete=models.CASCADE)
     substitute = models.ForeignKey(Aliment, on_delete=models.CASCADE, related_name="substitu")
-    # substitute = models.IntegerField()
 
     class Meta:
         verbose_name = "favoris"
-
-    # def __str__(self):
-    #     return self.user
