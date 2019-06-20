@@ -105,17 +105,19 @@ def sorted_nutriment(nut):
     """ Get back only specific nutriments """
 
     nut_sorted = {}
-    list_nut_accepted = [
-        'fat_100g', 'sugars_100g', 'saturated-fat_100g', 'salt_100g'
-    ]
+    dic_nut_accepted = {
+        'fat_100g': 'Matières grasses / Lipides',
+        'sugars_100g': 'Sucres',
+        'saturated-fat_100g': 'Acides gras saturés',
+        'salt_100g': 'Sel'
+    }
 
     for k, v in nut.items():
-
-        if k in list_nut_accepted:
-            nut_sorted[k] = v
-
-        else:
-            pass
+        for ke, va in dic_nut_accepted.items():
+            if k == ke:
+                nut_sorted[va] = v
+            else:
+                pass
     
     return nut_sorted
 
@@ -151,6 +153,7 @@ def main():
 
                 except:
                     pass
+
             page += 1
         list_test = []
 
