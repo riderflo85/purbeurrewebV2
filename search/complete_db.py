@@ -133,7 +133,7 @@ def main():
     for i in cat:
         page = 1
 
-        while page <= 10:
+        while page <= 30:
             rep = pull_data(i, page)
 
             for x in rep['products']:
