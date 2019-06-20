@@ -4,7 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from .forms import LoginForm, SignupForm
 
-# Create your views here.
+
 def sign_in(request):
     context = {'error': False,}
 
@@ -27,6 +27,7 @@ def sign_in(request):
     context['form'] = form
 
     return render(request, 'usercontrol/login.html', context=context)
+
 
 def sign_up(request):
     context = {'errors': False,}
@@ -56,10 +57,12 @@ def sign_up(request):
 
     return render(request, 'usercontrol/sign_up.html', context=context)
 
+
 def sign_out(request):
     logout(request)
 
     return render(request, 'usercontrol/sign_out.html')
+
 
 def account(request):
     context = {}

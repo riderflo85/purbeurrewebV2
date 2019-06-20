@@ -1,5 +1,6 @@
 from django import forms
 
+
 class LoginForm(forms.Form):
     user = forms.CharField(
         label='user',
@@ -14,6 +15,7 @@ class LoginForm(forms.Form):
             attrs={'placeholder': 'Mot de passe', 'class': 'form-control'}
             ),
     )
+
 
 class SignupForm(forms.Form):
     pseudo = forms.CharField(

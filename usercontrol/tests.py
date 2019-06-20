@@ -2,6 +2,7 @@ from django.test import TestCase, Client
 from django.contrib.auth.models import User
 from .forms import SignupForm, LoginForm
 
+
 class StatusCodePageTestCase(TestCase):
     def setUp(self):
         self.cli = Client()
@@ -22,10 +23,15 @@ class StatusCodePageTestCase(TestCase):
         rep = self.cli.get('/user/account')
         self.assertEqual(rep.status_code, 302)
 
+
 class UserAuthenticateTestCase(TestCase):
     def setUp(self):
         self.cli = Client()
-        user_test = User.objects.create_user(username='testUser', email='testuser@founisseur.com', password='test')
+        user_test = User.objects.create_user(
+            username='testUser',
+            email='testuser@founisseur.com',
+            password='test'
+        )
         user_test.first_name = 'Tester'
         user_test.last_name = 'FooTest'
         user_test.save()
@@ -35,7 +41,9 @@ class UserAuthenticateTestCase(TestCase):
         self.assertEqual(rep.status_code, 200)
 
     def test_user_redirect_after_sign_in(self):
-        rep = self.cli.post('/user/signin', {'user': 'testUser', 'password': 'test'})
+        rep = self.cli.post('/user/signin',
+            {'user': 'testUser', 'password': 'test'}
+        )
         self.assertEqual(rep.status_code, 302)
 
     def test_user_is_authenticated(self):
@@ -46,7 +54,11 @@ class UserAuthenticateTestCase(TestCase):
         self.assertEqual(rep2.context['user'].get_username(), 'testUser')
     
     def test_signup(self):
-        user_test2 = User.objects.create_user(username='testUser2', email='testuser@founisseur.com', password='test')
+        user_test2 = User.objects.create_user(
+            username='testUser2',
+            email='testuser@founisseur.com',
+            password='test'
+        )
         user_test2.first_name = 'Tester'
         user_test2.last_name = 'FooTest'
         user_test2.save()

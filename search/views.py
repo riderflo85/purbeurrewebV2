@@ -46,16 +46,6 @@ class DetailView(generic.DetailView):
     model = Aliment
     template_name = 'search/food_detail.html'
 
-
-# def fooddetail(request, food_id):
-#     context = {}
-    
-#     food = get_object_or_404(Aliment, pk=food_id)
-#     context['food'] = food
-#     context['nutriments'] = dict(eval(food.nutriments))
-
-#     return render(request, 'search/food_detail.html', context=context)
-
 def savefood(request):
     req = request.POST['idFood']
     fav = Favoris()

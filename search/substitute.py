@@ -1,5 +1,6 @@
 from .models import Aliment
 
+
 def substitute(food_search):
     """ Propose a substitute for the search food """
     food_sub = Aliment.objects.filter(

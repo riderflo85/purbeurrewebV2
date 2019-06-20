@@ -1,12 +1,10 @@
 import requests
 import json
-import os
-import django
 
 try:
     from .models import Aliment, Categorie
 except ModuleNotFoundError:
-    pass 
+    pass
 
 
 def pull_data(categ, page):
@@ -21,6 +19,7 @@ def pull_data(categ, page):
     except json.decoder.JSONDecodeError:
         pass
 
+
 def category_table(categ):
     """ remplissage de la table catégorie de la BDD """
 
@@ -32,6 +31,7 @@ def category_table(categ):
         return True
     except:
         return False
+
 
 def food_table(cat, dico_food):
     """ remplissage de la table aliment de la BDD """
@@ -54,6 +54,7 @@ def food_table(cat, dico_food):
         return True
     except:
         return False
+
 
 def delete_duplicates(categorie, dico_not_sorted):
     """ Data Sorting Function. Removes duplicates from a json file """
@@ -101,6 +102,7 @@ def delete_duplicates(categorie, dico_not_sorted):
 
     return dico_sorted
 
+
 def sorted_nutriment(nut):
     """ Get back only specific nutriments """
 
@@ -118,8 +120,9 @@ def sorted_nutriment(nut):
                 nut_sorted[va] = v
             else:
                 pass
-    
+
     return nut_sorted
+
 
 def main():
     cat = [
@@ -147,7 +150,7 @@ def main():
                     img = x["image_url"]
                     url = x["url"]
                     nutriments = sorted_nutriment(x["nutriments"])
-                    if pn!="" and ng!="" and nova!="" and st!="" and img!="" and url!="":
+                    if pn != "" and ng != "" and nova != "" and st != "" and img != "" and url != "":
                         list_test.append([pn, ng, nova, st, img, url, nutriments])
                         dico[i] = list_test
 
@@ -160,8 +163,7 @@ def main():
     sort = delete_duplicates(cat, dico)
 
     return sort
-    # with open('result_test.json', 'w') as file:
-    #     json.dump(sort, file, indent=4, ensure_ascii=False)
+
 
 if __name__ == '__main__':
     main()
