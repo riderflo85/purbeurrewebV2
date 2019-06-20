@@ -11,6 +11,8 @@ django-debug-toolbar = "*"
 django = "*"
 psycopg2-binary = "*"
 requests = "*"
+whitenoise = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.7"
