@@ -1,6 +1,7 @@
 from django.test import TestCase, Client
 from .models import Categorie, Aliment
 from .complete_db import category_table, sorted_nutriment
+from .substitute import substitute
 
 
 class SatusCodePageTestCase(TestCase):
@@ -28,8 +29,45 @@ class SatusCodePageTestCase(TestCase):
         self.assertEqual(rep.status_code, 200)
 
     def test_page_food_detail(self):
-        rep = self.cli.get('/food_detail/1')
+        rep = self.cli.get('/food_detail/6')
         self.assertEqual(rep.status_code, 200)
+
+    def test_page_legal_mention(self):
+        rep = self.cli.get('/mention_legale')
+        self.assertEqual(rep.status_code, 200)
+
+
+class RenderTemplateTestCase(TestCase):
+    def setUp(self):
+        self.cli = Client()
+        cat = Categorie()
+        cat.name = 'Dessert'
+        cat.save()
+        alim = Aliment()
+        alim.name = 'Cookie'
+        alim.nutrition_group = 'a'
+        alim.nova_group = 1
+        alim.shop = 'Hyper U'
+        alim.link = 'https://link.shop.com'
+        alim.nutriments = "{'succre pour 100g': 12}"
+        alim.categorie = cat
+        alim.save()
+
+    def test_template_page_index(self):
+        rep = self.cli.get('/')
+        self.assertTemplateUsed(rep, 'search/index.html')
+
+    def test_template_page_result(self):
+        rep = self.cli.get('/result')
+        self.assertTemplateUsed(rep, 'search/no_search.html')
+
+    def test_template_page_food_detail(self):
+        rep = self.cli.get('/food_detail/3')
+        self.assertTemplateUsed(rep, 'search/food_detail.html')
+
+    def test_template_page_legal_mention(self):
+        rep = self.cli.get('/mention_legale')
+        self.assertTemplateUsed(rep, 'search/legal_mention.html')
 
 
 class FunctionCompleteDbTestCase(TestCase):
@@ -119,3 +157,34 @@ class FunctionCompleteDbTestCase(TestCase):
             'Sel': 0.14
         }
         self.assertEqual(nut_sorted, result)
+
+
+class FunctionSubstituteTestCase(TestCase):
+    def setUp(self):
+        cat = Categorie()
+        cat.name = 'Fruit'
+        cat.save()
+        alim1 = Aliment()
+        alim1.name = 'Pomme'
+        alim1.nutrition_group = 'c'
+        alim1.nova_group = 2
+        alim1.shop = 'Hyper U'
+        alim1.link = 'https://link.shop.com'
+        alim1.nutriments = "{'succre pour 100g': 12}"
+        alim1.categorie = cat
+        alim1.save()
+        alim2 = Aliment()
+        alim2.name = 'Fraise'
+        alim2.nutrition_group = 'a'
+        alim2.nova_group = 1
+        alim2.shop = 'Lidl'
+        alim2.link = 'https://link.shop.com'
+        alim2.nutriments = "{'succre pour 100g': 12}"
+        alim2.categorie = cat
+        alim2.save()
+    
+    def test_result_substitute(self):
+        food = Aliment.objects.get(name='Pomme')
+        sub = substitute(food)
+        self.assertQuerysetEqual(sub, {'<Aliment: Fraise>': 1}, ordered=False)
+        self.assertEqual(sub[0].name, 'Fraise')
