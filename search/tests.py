@@ -19,6 +19,7 @@ class SatusCodePageTestCase(TestCase):
         alim.nutriments = "{'succre pour 100g': 12}"
         alim.categorie = cat
         alim.save()
+        self.food = alim.id
 
     def test_page_index(self):
         rep = self.cli.get('/')
@@ -29,7 +30,7 @@ class SatusCodePageTestCase(TestCase):
         self.assertEqual(rep.status_code, 200)
 
     def test_page_food_detail(self):
-        rep = self.cli.get('/food_detail/6')
+        rep = self.cli.get('/food_detail/{}'.format(self.food))
         self.assertEqual(rep.status_code, 200)
 
     def test_page_legal_mention(self):
@@ -52,6 +53,7 @@ class RenderTemplateTestCase(TestCase):
         alim.nutriments = "{'succre pour 100g': 12}"
         alim.categorie = cat
         alim.save()
+        self.food = alim.id
 
     def test_template_page_index(self):
         rep = self.cli.get('/')
@@ -62,7 +64,7 @@ class RenderTemplateTestCase(TestCase):
         self.assertTemplateUsed(rep, 'search/no_search.html')
 
     def test_template_page_food_detail(self):
-        rep = self.cli.get('/food_detail/3')
+        rep = self.cli.get('/food_detail/{}'.format(self.food))
         self.assertTemplateUsed(rep, 'search/food_detail.html')
 
     def test_template_page_legal_mention(self):
@@ -182,9 +184,10 @@ class FunctionSubstituteTestCase(TestCase):
         alim2.nutriments = "{'succre pour 100g': 12}"
         alim2.categorie = cat
         alim2.save()
+        self.food = alim2
     
     def test_result_substitute(self):
         food = Aliment.objects.get(name='Pomme')
         sub = substitute(food)
-        self.assertQuerysetEqual(sub, {'<Aliment: Fraise>': 1}, ordered=False)
         self.assertEqual(sub[0].name, 'Fraise')
+        self.assertEqual(sub[0], self.food)
