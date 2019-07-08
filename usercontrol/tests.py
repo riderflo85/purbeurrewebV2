@@ -36,6 +36,7 @@ class UserAuthenticateTestCase(TestCase):
         user_test.first_name = 'Tester'
         user_test.last_name = 'FooTest'
         user_test.save()
+        self.user = user_test
 
     def test_user_sign_in(self):
         rep = self.cli.get('/user/signin')
@@ -70,6 +71,19 @@ class UserAuthenticateTestCase(TestCase):
         rep = User.objects.get(username__contains='testUser2')
         self.assertEqual(rep.username, 'testUser2')
 
+    def test_user_sign_out(self):
+        self.cli.login(username=self.user.username, password='test')
+        rep = self.cli.get('/user/signout')
+        user_signout = rep.context['user'].is_anonymous
+        self.assertTrue(user_signout)
+
+    def test_informations_for_account_user_page(self):
+        self.cli.login(username=self.user.username, password='test')
+        rep = self.cli.get('/user/account')
+        self.assertEqual(rep.context['first_name'], self.user.first_name)
+        self.assertEqual(rep.context['last_name'], self.user.last_name)
+        self.assertEqual(rep.context['email'], self.user.email)
+
 
 class FormTestCase(TestCase):
     def test_form_sign_up(self):
@@ -95,22 +109,31 @@ class FormTestCase(TestCase):
 class TemplateRenderTestCase(TestCase):
     def setUp(self):
         self.cli = Client()
+        user_test = User.objects.create_user(
+            username='testUser',
+            email='testuser@founisseur.com',
+            password='test'
+        )
+        user_test.first_name = 'Tester'
+        user_test.last_name = 'FooTest'
+        user_test.save()
+        self.cli.login(username=user_test.username, password='test')
 
     def test_template_page_sign_in(self):
-        rep = self.cli.get('/sign_in')
-        self.assertTemplateUsed('/user/login.html')
+        rep = self.cli.get('/user/signin')
+        self.assertTemplateUsed(rep, 'usercontrol/login.html')
 
     def test_template_page_sign_up(self):
-        rep = self.cli.get('/sign_up')
-        self.assertTemplateUsed('/user/sign_up.html')
+        rep = self.cli.get('/user/signup')
+        self.assertTemplateUsed(rep, 'usercontrol/sign_up.html')
 
     def test_template_page_sign_out(self):
-        rep = self.cli.get('/sign_out')
-        self.assertTemplateUsed('/user/sign_out.html')
+        rep = self.cli.get('/user/signout')
+        self.assertTemplateUsed(rep, 'usercontrol/sign_out.html')
 
     def test_template_page_account(self):
-        rep = self.cli.get('/account')
-        self.assertTemplateUsed('/user/account.html')
+        rep = self.cli.get('/user/account')
+        self.assertTemplateUsed(rep, 'usercontrol/account.html')
 
 
 class ViewsUsedTestCase(TestCase):

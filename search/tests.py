@@ -251,6 +251,7 @@ class FunctionSubstituteTestCase(TestCase):
         alim2.categorie = cat
         alim2.save()
         self.food = alim2
+
     def test_result_substitute(self):
         food = Aliment.objects.get(name='Pomme')
         sub = substitute(food)
