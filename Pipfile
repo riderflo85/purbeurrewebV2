@@ -6,6 +6,7 @@ verify_ssl = true
 [dev-packages]
 pytest = "*"
 django-debug-toolbar = "*"
+coverage = "*"
 
 [packages]
 django = "*"
