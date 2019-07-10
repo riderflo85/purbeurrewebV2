@@ -52,6 +52,17 @@ div.h2
     margin: 0;
 }
 
+.title-search
+{
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-top: 8px;
+    color: whitesmoke;
+    background-color: rgb(232, 167, 93);
+    border: 1px solid rgb(232, 167, 93);
+    border-radius: 10px;
+}
+
 .color-darkblue
 {
     color: #345A61;
