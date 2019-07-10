@@ -8,7 +8,7 @@ except ModuleNotFoundError:
 
 
 def pull_data(categ, page):
-    """ Récupération des données de l'API d'OpenFoodFacts """
+    """ Recovering OpenFoodFacts API data """
 
     api = "https://fr.openfoodfacts.org/categorie/{}/{}".format(categ, page)
     payload = {"json": 1}
@@ -21,7 +21,7 @@ def pull_data(categ, page):
 
 
 def category_table(categ):
-    """ remplissage de la table catégorie de la BDD """
+    """ filling the table category in the database """
 
     try:
         for i in categ:
@@ -34,7 +34,7 @@ def category_table(categ):
 
 
 def food_table(cat, dico_food):
-    """ remplissage de la table aliment de la BDD """
+    """ filling the table food in the database """
 
     id_cat = 1
     try:
