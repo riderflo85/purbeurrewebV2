@@ -35,7 +35,7 @@ function changePwdUser() {
                     data: { 'old_pwd': pwdField.value, 'new_pwd': newPwdField.value, 'confirm_pwd': confirmNewPwdField.value },
                     success: function (data) {
 
-                        if (data === 'True') {
+                        if (data['ServerResponse'] === true) {
                             var allField = document.getElementsByClassName('complete');
 
                             for (let i = 0; i < allField.length; i++) {
@@ -43,8 +43,9 @@ function changePwdUser() {
                             }
                             btnSave.classList.add('d-none');
                             btnCancel.innerHTML = 'Fermer';
-                            status.innerHTML = 'Mot de passe changez avec succes';
+                            status.innerHTML = 'Votre mot de passe à été changez avec succes. La page va être actualisée dans 5 secondes et vous allez être dé-connectez';
                             status.classList.add('text-success');
+                            setTimeout(refreshPage, 5000);
                         } else {
                             status.innerHTML = "Veuillez indiquer votre mot de passe actuel.";
                             status.classList.add('text-danger');
