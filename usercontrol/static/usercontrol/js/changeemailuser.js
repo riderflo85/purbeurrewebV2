@@ -34,7 +34,7 @@ function changeEmailUser() {
                 data: { 'old_email': emailField.value, 'new_email': newEmailField.value, 'confirm_email': confirmNewEmailField.value },
                 success: function (data) {
 
-                    if (data === 'True') {
+                    if (data['ServerResponse'] === true) {
                         var allField = document.getElementsByClassName('complete');
 
                         for (let i = 0; i < allField.length; i++) {
@@ -42,8 +42,10 @@ function changeEmailUser() {
                         }
                         btnSave.classList.add('d-none');
                         btnCancel.innerHTML = 'Fermer';
-                        status.innerHTML = 'Votre adresse email à été changez avec succes';
+                        status.innerHTML = 'Votre adresse email à été changez avec succes. La page va être actualisée dans 5 secondes';
                         status.classList.add('text-success');
+                        setTimeout(refreshPage, 5000); // Refresh page
+                        // document.location.reload(true); // Refresh page
                     } else {
                         status.innerHTML = "Veuillez indiquer votre mot adresse email actuel.";
                         status.classList.add('text-danger');
