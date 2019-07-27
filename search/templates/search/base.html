@@ -70,6 +70,16 @@
         </div>
     </nav>
 
+    <!-- Variable for JavaScript -->
+    <div class="d-none" id="user_session">{{ user.is_authenticated }}</div>
+
+    <!-- Custom scripts JavaScript -->
+    <script src="{% static 'search/js/secureajax.js' %}"></script>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'search/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'search/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
     {% block content %}{% endblock content %}
 
 
@@ -83,12 +93,7 @@
         </div>
     </footer>
 
-    <!-- Variable for JavaScript -->
-    <div class="d-none" id="user_session">{{ user.is_authenticated }}</div>
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="{% static 'search/vendor/jquery/jquery.min.js' %}"></script>
-    <script src="{% static 'search/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 
     <!-- Plugin JavaScript -->
     <script src="{% static 'search/vendor/jquery-easing/jquery.easing.min.js' %}"></script>
@@ -96,9 +101,9 @@
 
     <!-- Custom scripts for this template -->
     <script src="{% static 'search/js/creative.min.js' %}"></script>
-    <script src="{% static 'search/js/secureajax.js' %}"></script>
+
+    <!-- Custom scripts JavaScript -->
     <script src="{% static 'search/js/notmatch.js' %}"></script>
-    <script src="{% static 'search/js/savefood.js' %}"></script>
 
 </body>
 

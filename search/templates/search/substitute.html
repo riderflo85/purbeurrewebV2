@@ -14,7 +14,7 @@
         <!-- banner -->
         <div class="row text-center align-items-center" id="img-food">
             <div class="col-12">
-                <h1 class="title-search"><strong>{{ food.name }}</strong></h1>
+                <h1><strong>{{ food.name }}</strong></h1>
 
                 {% if food.image %}
                     <style type="text/css">
@@ -87,6 +87,5 @@
         </div><!-- end .row justify-content-center -->
     </div><!-- end .container-fluid h-100 -->
 </header>
-<script src="{% static 'search/js/notmatch.js' %}"></script>
-<script src="{% static 'search/js/result.js' %}"></script>
+<script src="{% static 'search/js/savefood.js' %}"></script>
 {% endblock content %}

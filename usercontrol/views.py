@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse
+from django.http import JsonResponse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from .forms import LoginForm, SignupForm
@@ -77,3 +78,37 @@ def account(request):
         return redirect(reverse('usercontrol:user_login'))
 
     return render(request, 'usercontrol/account.html', context=context)
+
+
+def change_pwd(request):
+    req = request.POST
+    old_pwd = req['old_pwd']
+    new_pwd = req['new_pwd']
+    user = request.user
+    serv_response = {}
+
+    if user.check_password(old_pwd):
+        user.set_password(new_pwd)
+        serv_response['ServerResponse'] = True
+        user.save()
+    else:
+        serv_response['ServerResponse'] = False
+    
+    return JsonResponse(serv_response)
+
+
+def change_email(request):
+    req = request.POST
+    old_email = req['old_email']
+    new_email = req['new_email']
+    user = request.user
+    serv_response = {}
+
+    if user.email == old_email:
+        user.email = new_email
+        serv_response['ServerResponse'] = True
+        user.save()
+    else:
+        serv_response['ServerResponse'] = False
+
+    return JsonResponse(serv_response)
