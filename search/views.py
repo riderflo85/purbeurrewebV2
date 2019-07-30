@@ -27,10 +27,10 @@ def result(request):
             food = Aliment.objects.filter(name__contains=food_search)
 
             if food.exists():
-                sub = substitute(food[0])
                 context['match'] = True
                 context['food'] = food[0]
-                context['list_food'] = sub
+                context['string_search'] = food_search
+                context['list_food'] = food
 
             else:
                 context['match'] = False

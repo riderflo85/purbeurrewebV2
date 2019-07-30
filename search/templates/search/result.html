@@ -14,7 +14,7 @@
         <!-- banner -->
         <div class="row text-center align-items-center" id="img-food">
             <div class="col-12">
-                <h1 class="title-search"><strong>{{ food.name }}</strong></h1>
+                <h1 class="title-search">Résultat pour votre recherche: <strong>"{{ string_search }}"</strong></h1>
 
                 {% if food.image %}
                     <style type="text/css">
@@ -54,7 +54,7 @@
                         </a>
                         <div class="card-body">
                             <h4 class="card-title text-center">{{ food.name }}</h4>
-                            <a href="#" class="btn btn-color-personal btn-save-food"><p class="d-none">{{ food.id }}</p><i class="fas fa-save"></i> Sauvegarder</a>
+                            <a href="{% url 'search:substitute' food.id %}" class="btn btn-color-personal btn-save-food">Trouver son substitut</a>
                         </div>
                     </div>
                 </div>
