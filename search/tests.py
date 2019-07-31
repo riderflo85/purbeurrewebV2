@@ -243,11 +243,11 @@ class SearchFormTestCase(TestCase):
         rep = self.cli.post('/result', self.send_data)
         self.assertTrue(rep.context['match'])
         self.assertEqual(rep.context['food'], self.food)
-        self.assertEqual(rep.context['list_food'], None)
 
     def test_food_not_exist_for_search(self):
         rep = self.cli.post('/result', {'research': 'Fraise'})
         self.assertFalse(rep.context['match'])
+
 
 class FunctionSubstituteTestCase(TestCase):
     def setUp(self):
