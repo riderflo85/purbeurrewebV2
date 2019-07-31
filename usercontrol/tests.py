@@ -1,7 +1,8 @@
 from django.test import TestCase, Client
 from django.contrib.auth.models import User
+from django.contrib.auth.hashers import check_password
 from .forms import SignupForm, LoginForm
-from .views import sign_in, sign_out, sign_up, account
+from .views import sign_in, sign_out, sign_up, account, change_pwd, change_email
 
 
 class StatusCodePageTestCase(TestCase):
@@ -177,3 +178,68 @@ class ViewsUsedTestCase(TestCase):
     def test_views_page_account(self):
         rep = self.cli.get('/user/account')
         self.assertEqual(rep.resolver_match.func, account)
+
+
+class ChangeInfosUserTestCase(TestCase):
+    def setUp(self):
+        self.cli = Client()
+        user_test = User.objects.create_user(
+            username='testUser',
+            email='testuser@founisseur.com',
+            password='test'
+        )
+        user_test.first_name = 'Tester'
+        user_test.last_name = 'FooTest'
+        user_test.save()
+        self.cli.login(username=user_test.username, password='test')
+        self.user = user_test
+
+    def test_change_email(self):
+        rep = self.cli.post('/user/change_email',
+            {
+                'old_email': self.user.email,
+                'new_email': 'newemail@fournisseur.com'
+            }
+        )
+        self.assertTrue(rep.json()['ServerResponse'])
+        self.assertEqual(
+            User.objects.get(username=self.user.username).email,
+            'newemail@fournisseur.com'
+        )
+
+    def test_change_email_fail(self):
+        rep = self.cli.post('/user/change_email',
+            {
+                'old_email': 'failemial@fail.com',
+                'new_email': 'newemail@fournisseur.com'
+            }
+        )
+        self.assertFalse(rep.json()['ServerResponse'])
+        self.assertNotEqual(
+            User.objects.get(username=self.user.username).email,
+            'newemail@fournisseur.com'
+        )
+
+    def test_change_pwd(self):
+        rep = self.cli.post('/user/change_pwd',
+            {
+               'old_pwd': 'test',
+               'new_pwd': 'newpassword'
+            }
+        )
+        user_new_pwd = User.objects.get(username=self.user.username).password
+        check_pwd = check_password('newpassword', user_new_pwd)
+        self.assertTrue(rep.json()['ServerResponse'])
+        self.assertTrue(check_pwd)
+
+    def test_change_pwd_fail(self):
+        rep = self.cli.post('/user/change_pwd',
+            {
+               'old_pwd': 'failpwd',
+               'new_pwd': 'newpassword'
+            }
+        )
+        user_new_pwd = User.objects.get(username=self.user.username).password
+        check_pwd = check_password('newpassword', user_new_pwd)
+        self.assertFalse(rep.json()['ServerResponse'])
+        self.assertFalse(check_pwd)

@@ -89,8 +89,8 @@ def change_pwd(request):
 
     if user.check_password(old_pwd):
         user.set_password(new_pwd)
-        serv_response['ServerResponse'] = True
         user.save()
+        serv_response['ServerResponse'] = True
     else:
         serv_response['ServerResponse'] = False
     
@@ -106,8 +106,8 @@ def change_email(request):
 
     if user.email == old_email:
         user.email = new_email
-        serv_response['ServerResponse'] = True
         user.save()
+        serv_response['ServerResponse'] = True
     else:
         serv_response['ServerResponse'] = False
 
