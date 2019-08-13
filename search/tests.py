@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from .models import Categorie, Aliment, Favoris
 from .complete_db import category_table, sorted_nutriment
 from .substitute import substitute
-from .views import index, result, myfood, legalmention, DetailView
+from .views import index, result, myfood, legalmention, DetailView, substitutefood
 from .forms import SearchForm
 
 
@@ -26,6 +26,10 @@ class SatusCodePageTestCase(TestCase):
 
     def test_page_index(self):
         rep = self.cli.get('/')
+        self.assertEqual(rep.status_code, 200)
+
+    def test_page_substitute(self):
+        rep = self.cli.get('/substitute/{}'.format(self.food.id))
         self.assertEqual(rep.status_code, 200)
 
     def test_page_result(self):
@@ -65,6 +69,10 @@ class CheckViewsTestCase(TestCase):
     def test_views_page_index(self):
         rep = self.cli.get('/')
         self.assertEqual(rep.resolver_match.func, index)
+
+    def test_views_page_substitute(self):
+        rep = self.cli.get('/substitute/{}'.format(self.food.id))
+        self.assertEqual(rep.resolver_match.func, substitutefood)
 
     def test_views_page_result(self):
         rep = self.cli.get('/result')
@@ -106,6 +114,10 @@ class RenderTemplateTestCase(TestCase):
     def test_template_page_index(self):
         rep = self.cli.get('/')
         self.assertTemplateUsed(rep, 'search/index.html')
+
+    def test_template_page_substitute(self):
+        rep = self.cli.get('/substitute/{}'.format(self.food.id))
+        self.assertTemplateUsed(rep, 'search/substitute.html')
 
     def test_template_page_result(self):
         rep = self.cli.get('/result')
