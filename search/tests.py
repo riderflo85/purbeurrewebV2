@@ -260,6 +260,10 @@ class SearchFormTestCase(TestCase):
         rep = self.cli.post('/result', {'research': 'Fraise'})
         self.assertFalse(rep.context['match'])
 
+    def test_view_error_to_propose_food(self):
+        rep = self.cli.get('/substitute/3456')
+        self.assertFalse(rep.context['match'])
+
 
 class FunctionSubstituteTestCase(TestCase):
     def setUp(self):
@@ -347,3 +351,15 @@ class SaveFoodFavoritesTestCase(TestCase):
 
         self.assertEqual(user_save_fav, self.user)
         self.assertEqual(alim_for_substitute, self.food)
+
+    def test_check_save_food(self):
+        self.cli.login(
+            username=self.user.username,
+            password='test'
+        )
+        fav = Favoris()
+        fav.user = self.user
+        fav.substitute = self.food
+        fav.save()
+        rep = self.cli.get('/my_food')
+        self.assertEqual(rep.context['list_food'][0].substitute.id, self.food.id)
