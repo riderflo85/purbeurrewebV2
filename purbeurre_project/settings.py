@@ -104,7 +104,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'purbeurre_db',
     'USER': 'pi',
-    'PASSWORD': 'tiflo300',
+    'PASSWORD': os.environ.get('PWD_DB'),
     'HOST': '192.168.1.17',
     'PORT': '5432',
     }
@@ -128,7 +128,7 @@ if os.environ.get('ENV') == 'PRODUCTION':
 #         'ENGINE': 'django.db.backends.postgresql',
 #         'NAME': 'purbeurre_db',
 #     'USER': 'florent',
-#     'PASSWORD': 'tiflo300',
+#     'PASSWORD': os.environ.get('PWD_DB'),
 #     'HOST': '',
 #     'PORT': '5432',
 #     }
