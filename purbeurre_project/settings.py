@@ -105,7 +105,7 @@ DATABASES = {
         'NAME': 'purbeurre_db',
     'USER': 'pi',
     'PASSWORD': os.environ.get('PWD_DB'),
-    'HOST': '192.168.1.17',
+    'HOST': '192.168.1.19',
     'PORT': '5432',
     }
 }
