@@ -85,10 +85,24 @@ class UserAuthenticateTestCase(TestCase):
                 'last_name': 'secondary',
                 'first_name': 'user',
                 'email': 'secondary.user@test.com',
-                'password': 'longpasswordtest'
+                'password': 'longpasswordtest',
+                'confirm_pwd': 'longpasswordtest'
             }
         )
         self.assertEqual(rep.context['new_user'].username, 'secondary_user')
+
+    def test_user_failed_signup_with_view(self):
+        rep = self.cli.post('/user/signup',
+            {
+                'pseudo': 'secondary_user',
+                'last_name': 'secondary',
+                'first_name': 'user',
+                'email': 'secondary.user@test.com',
+                'password': 'longpasswordtest',
+                'confirm_pwd': 'differentpasswordtest'
+            }
+        )
+        self.assertTrue(rep.context['error_pwd'])
 
     def test_user_sign_out(self):
         self.cli.login(username=self.user.username,
@@ -115,7 +129,8 @@ class FormTestCase(TestCase):
             'last_name': 'FooTest',
             'first_name': 'Tester',
             'email': 'testuser@founisseur.com',
-            'password': 'longpasswordtest'
+            'password': 'longpasswordtest',
+            'confirm_pwd': 'longpasswordtest'
         }
         form = SignupForm(data=form_data)
         self.assertTrue(form.is_valid())
