@@ -24,6 +24,9 @@
                             {% if new_user.is_active %}
                             <h3 class="text-white">Compte créé avec succès</h3>
                             {% else %}
+                            {% if error_pwd %}
+                            <h3 class="text-warning bg-secondary">Votre confirmation de mot de passe est différente, veuillez corriger cela !</h3>
+                            {% endif %}
                             <form action="{% url 'usercontrol:sign_up' %}", method='post'>
                             {% csrf_token %}
                                 <div class="input-group form-group">
@@ -64,6 +67,14 @@
                                         <span class="input-group-text fav-icon-bg"><i class="fas fa-key"></i></span>
                                     </div><!-- end div icon -->
                                     {{ form.password }}
+                                    {% comment %} <input type="password" class="form-control" placeholder="Mot de passe"> {% endcomment %}
+                                </div><!-- end .input-group form-group -->
+                                <div class="input-group form-group">
+                                    <!-- icon -->
+                                    <div class="input-group-prepend fav-icon-bg">
+                                        <span class="input-group-text fav-icon-bg"><i class="fas fa-key"></i></span>
+                                    </div><!-- end div icon -->
+                                    {{ form.confirm_pwd }}
                                     {% comment %} <input type="password" class="form-control" placeholder="Mot de passe"> {% endcomment %}
                                 </div><!-- end .input-group form-group -->
                                 <div class="form-group">

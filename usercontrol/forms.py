@@ -52,3 +52,13 @@ class SignupForm(forms.Form):
             attrs={'placeholder': 'Mot de passe', 'class': 'form-control'}
         ),
     )
+    confirm_pwd = forms.CharField(
+        label='confirm_pwd',
+        min_length=8,
+        widget=forms.PasswordInput(
+            attrs={
+                'placeholder': 'Confirmation du mot de passe',
+                'class': 'form-control'
+            }
+        ),
+    )

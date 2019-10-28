@@ -42,12 +42,15 @@ def sign_up(request):
             first_name = form.cleaned_data['first_name']
             email = form.cleaned_data['email']
             pwd = form.cleaned_data['password']
-
-            new_user = User.objects.create_user(pseudo, email, pwd)
-            new_user.last_name = last_name
-            new_user.first_name = first_name
-            new_user.save()
-            context['new_user'] = new_user
+            confirm_pwd = form.cleaned_data['confirm_pwd']
+            if pwd == confirm_pwd:
+                new_user = User.objects.create_user(pseudo, email, pwd)
+                new_user.last_name = last_name
+                new_user.first_name = first_name
+                new_user.save()
+                context['new_user'] = new_user
+            else:
+                context['error_pwd'] = True
 
         else:
             context['errors'] = form.errors.items()
