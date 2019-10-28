@@ -131,9 +131,9 @@ class RenderTemplateTestCase(TestCase):
         rep = self.cli.get('/mention_legale')
         self.assertTemplateUsed(rep, 'search/legal_mention.html')
 
-    def test_temlpate_page_my_food(sefl):
-        rep = sefl.cli.get('/my_food')
-        sefl.assertTemplateUsed(rep, 'search/my_food.html')
+    def test_temlpate_page_my_food(self):
+        rep = self.cli.get('/my_food')
+        self.assertTemplateUsed(rep, 'search/my_food.html')
 
 
 class FunctionCompleteDbTestCase(TestCase):
